@@ -2,7 +2,7 @@ import React from 'react'
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Visual style variant */
-  variant?: 'default' | 'secondary'
+  variant?: 'default' | 'secondary' | 'outline'
   children: React.ReactNode
 }
 
@@ -15,6 +15,7 @@ export const Badge: React.FC<BadgeProps> = ({
   const variantClasses: Record<string, string> = {
     default: 'bg-primary/10 text-primary border border-transparent',
     secondary: 'bg-secondary/10 text-secondary border border-transparent',
+    outline: 'bg-transparent text-foreground border border-border',
   }
 
   const combinedClassName = [

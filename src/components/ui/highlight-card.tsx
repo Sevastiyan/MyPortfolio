@@ -20,16 +20,27 @@ export function HighlightCard({ icon: Icon, title, description, index }: Highlig
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${index * 500}ms` }}
+      style={{ transitionDelay: `${index * 200}ms` }}
       className={`transition-all duration-1000 ease-out ${
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
-      <Card className='text-center p-4 h-full bg-card/60 backdrop-blur-sm hover:bg-card/90 transition-colors'>
-        <CardContent className='pt-4'>
-          <Icon className='h-8 w-8 text-primary mx-auto mb-3' />
-          <h3 className='font-semibold mb-2'>{title}</h3>
-          <p className='text-sm text-muted-foreground'>{description}</p>
+      <Card className='group relative text-center p-6 h-full glass hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-primary/10'>
+        {/* Background gradient that appears on hover */}
+        <div className='absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+
+        <CardContent className='relative pt-4 space-y-4'>
+          <div className='inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 group-hover:scale-110'>
+            <Icon className='h-8 w-8 text-primary group-hover:text-accent transition-colors duration-500' />
+          </div>
+
+          <h3 className='text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300'>
+            {title}
+          </h3>
+
+          <p className='text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300'>
+            {description}
+          </p>
         </CardContent>
       </Card>
     </div>
