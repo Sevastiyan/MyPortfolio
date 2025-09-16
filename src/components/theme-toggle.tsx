@@ -37,6 +37,8 @@ export function ThemeToggle() {
         return <Sun className='h-[1.2rem] w-[1.2rem] text-amber-500' />
       case 'dark':
         return <Moon className='h-[1.2rem] w-[1.2rem] text-blue-400' />
+      case 'system':
+        return <Laptop className='h-[1.2rem] w-[1.2rem] text-muted-foreground' />
       default:
         return <Sun className='h-[1.2rem] w-[1.2rem]' />
     }

@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'My Portfolio',
   description: 'Modern portfolio showcasing projects, skills, and professional experience',
+  icons: {
+    icon: '/portfolio.png',
+  },
 }
 
 export default function RootLayout({
@@ -26,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider defaultTheme='light' enableSystem>
+        <ThemeProvider defaultTheme='dark' enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>

@@ -31,6 +31,10 @@ export function AboutSection() {
         style={{ animationDelay: '0.5s' }}
       />
       <div
+        className='absolute top-120 left-26 w-64 h-64 rounded-full bg-accent/5 animate-float'
+        style={{ animationDelay: '1.5s' }}
+      />
+      <div
         className='absolute bottom-20 left-10 w-24 h-24 rounded-full bg-primary/5 animate-float'
         style={{ animationDelay: '1.5s' }}
       />
@@ -91,7 +95,7 @@ export function AboutSection() {
             <div className='absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-xl opacity-30' />
             <div className='absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-2xl opacity-20 animate-float' />
             <div
-              className='absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-accent to-secondary rounded-full opacity-15 animate-float'
+              className='absolute -bottom-12 -left-12 w-32 h-32 bg-gradient-to-br from-accent to-secondary rounded-full opacity-15 animate-float'
               style={{ animationDelay: '1s' }}
             />
 

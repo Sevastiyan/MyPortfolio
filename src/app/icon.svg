@@ -1,0 +1,14 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:oklch(0.68 0.22 275)" />
+      <stop offset="100%" style="stop-color:oklch(0.72 0.3 320)" />
+    </linearGradient>
+  </defs>
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M20 20 H 60 C 82.0914 20 100 37.9086 100 60 C 100 82.0914 82.0914 100 60 100 H 20 V 20 Z M 40 40 V 80 H 60 C 71.0457 80 80 71.0457 80 60 C 80 48.9543 71.0457 40 60 40 H 40 Z"
+    fill="url(#grad)"
+  />
+</svg>
