@@ -18,6 +18,13 @@ import {
 } from 'react-icons/si'
 
 export function ProjectsSection() {
+  // Helper to remove undefined values from metrics
+  function cleanMetrics(metrics: Record<string, string | undefined>): Record<string, string> {
+    return Object.fromEntries(
+      Object.entries(metrics).filter(([_, v]) => typeof v === 'string')
+    ) as Record<string, string>
+  }
+
   const projects = [
     {
       title: 'E-Commerce Platform',
@@ -28,11 +35,11 @@ export function ProjectsSection() {
       icons: [SiReact, SiNextdotjs, SiTypescript, SiPostgresql],
       category: 'Full-Stack',
       status: 'Live',
-      metrics: {
+      metrics: cleanMetrics({
         users: '10K+',
         uptime: '99.9%',
         performance: 'A+',
-      },
+      }),
       links: {
         demo: 'https://demo.example.com',
         github: 'https://github.com/username/project',
@@ -48,11 +55,11 @@ export function ProjectsSection() {
       icons: [SiPython, SiReact, SiMongodb],
       category: 'AI/ML',
       status: 'In Development',
-      metrics: {
+      metrics: cleanMetrics({
         accuracy: '94%',
         models: '5',
         data: '1M+ records',
-      },
+      }),
       links: {
         demo: 'https://demo.example.com',
         github: 'https://github.com/username/project',
@@ -68,11 +75,11 @@ export function ProjectsSection() {
       icons: [SiVuedotjs, SiNodedotjs, SiMongodb],
       category: 'Web App',
       status: 'Live',
-      metrics: {
+      metrics: cleanMetrics({
         posts: '50K+',
         users: '2K+',
         engagement: '85%',
-      },
+      }),
       links: {
         demo: 'https://demo.example.com',
         github: 'https://github.com/username/project',
@@ -88,11 +95,11 @@ export function ProjectsSection() {
       icons: [SiReact, SiNodedotjs, SiMongodb],
       category: 'Real-Time',
       status: 'Live',
-      metrics: {
+      metrics: cleanMetrics({
         messages: '1M+',
         users: '5K+',
         uptime: '99.8%',
-      },
+      }),
       links: {
         demo: 'https://demo.example.com',
         github: 'https://github.com/username/project',
@@ -108,11 +115,11 @@ export function ProjectsSection() {
       icons: [SiNextdotjs, SiTypescript, SiTailwindcss],
       category: 'SaaS',
       status: 'Beta',
-      metrics: {
+      metrics: cleanMetrics({
         templates: '50+',
         users: '1K+',
         satisfaction: '4.8/5',
-      },
+      }),
       links: {
         demo: 'https://demo.example.com',
         github: 'https://github.com/username/project',
@@ -167,7 +174,7 @@ export function ProjectsSection() {
         </div>
 
         {/* Category Filter */}
-        <div className='flex flex-wrap justify-center gap-3 mb-16'>
+        {/* <div className='flex flex-wrap justify-center gap-3 mb-16'>
           {categories.map((category) => (
             <Button
               key={category}
@@ -182,14 +189,11 @@ export function ProjectsSection() {
               {category}
             </Button>
           ))}
-        </div>
+        </div> */}
 
         {/* Featured Projects */}
         {selectedCategory === 'All' && (
           <div className='mb-20'>
-            <h3 className='text-2xl font-bold text-center mb-12 text-foreground'>
-              Featured Projects
-            </h3>
             <div className='grid lg:grid-cols-2 gap-8'>
               {featuredProjects.map((project, index) => (
                 <FeaturedProjectCard key={index} project={project} index={index} />
