@@ -14,12 +14,12 @@ export const Badge: React.FC<BadgeProps> = ({
 }) => {
   const variantClasses: Record<string, string> = {
     default: 'bg-primary/10 text-primary border border-transparent',
-    secondary: 'bg-secondary/10 text-secondary border border-transparent',
+    secondary: 'bg-secondary/10 text-secondary text-sm border border-transparent',
     outline: 'bg-transparent text-foreground border border-border',
   }
 
   const combinedClassName = [
-    'inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold transition-colors',
+    'inline-flex items-center px-5 py-0.5 rounded-md font-semibold transition-colors',
     variantClasses[variant],
     className,
   ]

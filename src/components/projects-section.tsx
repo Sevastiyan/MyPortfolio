@@ -283,7 +283,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
-      <Card className='group h-full glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden'>
+      <Card className='group h-full flex flex-col glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden'>
         {/* Project Image */}
         <div className='relative h-48 bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden'>
           {/* Placeholder for project image */}
@@ -305,51 +305,56 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
           {/* Category */}
           <div className='absolute top-4 left-4'>
-            <Badge variant='outline' className='glass border-white/30 text-white'>
+            <Badge variant='default' className='glass'>
               {project.category}
             </Badge>
           </div>
         </div>
 
         <CardHeader className='pb-4'>
-          <CardTitle className='text-xl group-hover:text-primary transition-colors duration-300'>
+          <CardTitle className='text-xl group-hover:text-primary transition-colors duration-300 line-clamp-2'>
             {project.title}
           </CardTitle>
-          <p className='text-muted-foreground leading-relaxed'>{project.description}</p>
+          <p className='text-muted-foreground leading-relaxed line-clamp-3'>
+            {project.description}
+          </p>
         </CardHeader>
 
-        <CardContent className='space-y-6'>
-          {/* Technologies */}
-          <div className='flex items-center space-x-3'>
-            {project.icons.slice(0, 4).map((Icon, iconIndex) => (
-              <div
-                key={iconIndex}
-                className='p-2 rounded-lg bg-muted/50 group-hover:bg-primary/10 transition-colors duration-300'
-              >
-                <Icon className='h-5 w-5 text-primary' />
-              </div>
-            ))}
-            {project.icons.length > 4 && (
-              <div className='p-2 rounded-lg bg-muted/50 text-xs text-muted-foreground'>
-                +{project.icons.length - 4}
-              </div>
-            )}
-          </div>
-
-          {/* Metrics */}
-          <div className='grid grid-cols-3 gap-2 text-center'>
-            {Object.entries(project.metrics)
-              .slice(0, 3)
-              .map(([key, value], metricIndex) => (
-                <div key={metricIndex} className='space-y-1'>
-                  <div className='text-sm font-bold text-primary'>{value}</div>
-                  <div className='text-xs text-muted-foreground capitalize'>{key}</div>
+        {/* Make content stretch + push links down */}
+        <CardContent className='flex-1 flex flex-col justify-between'>
+          <div className='space-y-6'>
+            {/* Technologies */}
+            <div className='flex items-center space-x-3'>
+              {project.icons.slice(0, 4).map((Icon, iconIndex) => (
+                <div
+                  key={iconIndex}
+                  className='p-2 rounded-lg bg-muted/50 group-hover:bg-primary/10 transition-colors duration-300'
+                >
+                  <Icon className='h-5 w-5 text-primary' />
                 </div>
               ))}
+              {project.icons.length > 4 && (
+                <div className='p-2 rounded-lg bg-muted/50 text-xs text-muted-foreground'>
+                  +{project.icons.length - 4}
+                </div>
+              )}
+            </div>
+
+            {/* Metrics */}
+            <div className='grid grid-cols-3 gap-2 text-center min-h-[60px]'>
+              {Object.entries(project.metrics)
+                .slice(0, 3)
+                .map(([key, value], metricIndex) => (
+                  <div key={metricIndex} className='space-y-1'>
+                    <div className='text-sm font-bold text-primary'>{value}</div>
+                    <div className='text-xs text-muted-foreground capitalize'>{key}</div>
+                  </div>
+                ))}
+            </div>
           </div>
 
-          {/* Links */}
-          <div className='flex space-x-3 pt-2'>
+          {/* Links pinned at bottom */}
+          <div className='flex space-x-3 pt-6'>
             <Button
               variant='outline'
               size='sm'
@@ -460,9 +465,13 @@ function FeaturedProjectCard({ project, index }: ProjectCardProps) {
 
           {/* Action buttons */}
           <div className='flex space-x-4 pt-2'>
-            <Button className='flex-1 rounded-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300'>
-              <ExternalLink className='h-4 w-4 mr-2' />
-              View Project
+            <Button
+              externalLink={project.links.demo}
+              className='flex-1 rounded-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300'
+            >
+              <div className='flex items-center gap-2'>
+                View Project <ExternalLink className='h-4 w-4 mr-2' />
+              </div>
             </Button>
             <Button
               variant='outline'

@@ -11,6 +11,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   scrollOffset?: number
   /** Animation type for scroll */
   scrollAnimation?: 'smooth' | 'instant' | 'bounce'
+  externalLink?: string
   children: React.ReactNode
 }
 
@@ -20,6 +21,7 @@ export const Button: React.FC<ButtonProps> = ({
   scrollTo,
   scrollOffset = 80,
   scrollAnimation = 'smooth',
+  externalLink,
   className,
 
   children,
@@ -113,7 +115,13 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button className={combinedClassName} onClick={handleScrollClick} {...props}>
-      {children}
+      {externalLink ? (
+        <a href={externalLink} target='_blank' rel='noopener noreferrer'>
+          {children}
+        </a>
+      ) : (
+        children
+      )}
     </button>
   )
 }
