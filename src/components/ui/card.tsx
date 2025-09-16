@@ -3,7 +3,10 @@ import React from 'react'
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
 export const Card: React.FC<CardProps> = ({ children, className, ...props }) => (
   <div
-    className={['border border-border bg-card rounded-lg overflow-hidden', className]
+    className={[
+      'border border-border bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300',
+      className,
+    ]
       .filter(Boolean)
       .join(' ')}
     {...props}

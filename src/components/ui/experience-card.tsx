@@ -22,43 +22,63 @@ interface ExperienceCardProps {
 
 export function ExperienceCard({ experience, index }: ExperienceCardProps) {
   const { ref, inView } = useInView({
-    // triggerOnce: true,
-    threshold: 0.5,
+    triggerOnce: true,
+    threshold: 0.3,
   })
 
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${index * 200}ms` }}
+      style={{ transitionDelay: `${index * 300}ms` }}
       className={`relative flex items-center transition-all duration-1000 ease-out ${
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      } ${index > 0 ? '-mt-12' : ''} ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+      } ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
     >
-      {/* Timeline dot */}
-      <div className='absolute left-4 md:left-1/2 w-4 h-4 bg-primary ring-4 ring-background rounded-full md:transform md:-translate-x-2 z-10 shadow-lg' />
+      {/* Enhanced Timeline dot */}
+      <div className='absolute left-4 md:left-1/2 md:transform md:-translate-x-2 z-10'>
+        <div className='w-6 h-6 bg-gradient-to-br from-primary to-accent rounded-full shadow-lg ring-4 ring-background border-2 border-primary/30'>
+          <div className='w-full h-full bg-gradient-to-br from-primary to-accent rounded-full animate-pulse opacity-60' />
+        </div>
+      </div>
 
-      <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-        <Card className='ml-12 md:ml-0 bg-card/80 backdrop-blur-sm border-primary/20 hover:border-primary/50 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl'>
-          <CardHeader>
-            <CardTitle className='text-xl'>{experience.title}</CardTitle>
-            <div className='space-y-2'>
-              <div className='flex items-center text-muted-foreground'>
-                <MapPin className='h-4 w-4 mr-2' />
-                <span className='font-medium'>{experience.company}</span>
-                <span className='mx-2'>•</span>
+      <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+        <Card className='group ml-12 md:ml-0 glass border-primary/20 hover:border-primary/40 transition-all duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl'>
+          {/* Background gradient that appears on hover */}
+          <div className='absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+
+          <CardHeader className='relative'>
+            <CardTitle className='text-xl lg:text-2xl font-bold group-hover:text-primary transition-colors duration-300'>
+              {experience.title}
+            </CardTitle>
+            <div className='space-y-3'>
+              <div className='flex items-center text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300'>
+                <div className='flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 mr-3 group-hover:bg-primary/20 transition-colors duration-300'>
+                  <MapPin className='h-4 w-4 text-primary' />
+                </div>
+                <span className='font-semibold'>{experience.company}</span>
+                <span className='mx-2 text-primary'>•</span>
                 <span>{experience.location}</span>
               </div>
-              <div className='flex items-center text-muted-foreground'>
-                <Calendar className='h-4 w-4 mr-2' />
-                <span>{experience.period}</span>
+              <div className='flex items-center text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300'>
+                <div className='flex items-center justify-center w-8 h-8 rounded-full bg-accent/10 mr-3 group-hover:bg-accent/20 transition-colors duration-300'>
+                  <Calendar className='h-4 w-4 text-accent' />
+                </div>
+                <span className='font-medium'>{experience.period}</span>
               </div>
             </div>
           </CardHeader>
-          <CardContent className='space-y-4'>
-            <p className='text-muted-foreground leading-relaxed'>{experience.description}</p>
+
+          <CardContent className='relative space-y-6'>
+            <p className='text-muted-foreground leading-relaxed text-lg group-hover:text-foreground/80 transition-colors duration-300'>
+              {experience.description}
+            </p>
             <div className='flex flex-wrap gap-2'>
               {experience.technologies.map((tech, techIndex) => (
-                <Badge key={techIndex} variant='secondary'>
+                <Badge
+                  key={techIndex}
+                  variant='secondary'
+                  className='px-3 py-1 text-sm font-medium bg-muted/50 hover:bg-primary/10 hover:text-primary border border-border hover:border-primary/30 transition-all duration-300'
+                >
                   {tech}
                 </Badge>
               ))}
