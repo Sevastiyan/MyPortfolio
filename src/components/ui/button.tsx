@@ -21,6 +21,7 @@ export const Button: React.FC<ButtonProps> = ({
   scrollOffset = 80,
   scrollAnimation = 'smooth',
   className,
+
   children,
   onClick,
   ...props

@@ -50,7 +50,7 @@ export function ExperienceSection() {
       />
       <div
         className='absolute bottom-40 right-20 w-32 h-32 rounded-full bg-accent/5 animate-float'
-        style={{ animationDelay: '2s' }}
+        style={{ animationDelay: '1s' }}
       />
 
       <div className='relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -76,9 +76,9 @@ export function ExperienceSection() {
 
         <div className='relative'>
           {/* Enhanced Timeline line */}
-          <div className='absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary/20 via-primary to-accent/20 md:transform md:-translate-x-0.5 rounded-full shadow-lg' />
+          <div className='absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary/20 via-primary to-accent/20 md:transform md:-translate-x-0 rounded-full shadow-lg' />
 
-          <div className='space-y-8'>
+          <div className='space-y-0'>
             {experiences.map((experience, index) => (
               <ExperienceCard key={index} experience={experience} index={index} />
             ))}

@@ -15,6 +15,14 @@ import {
   SiPython,
   SiMongodb,
   SiVuedotjs,
+  SiTensorflow,
+  SiWebrtc,
+  SiAndroid,
+  SiSpringboot,
+  SiKotlin,
+  SiAwslambda,
+  SiAmazondynamodb,
+  SiAmazon,
 } from 'react-icons/si'
 
 export function ProjectsSection() {
@@ -27,57 +35,57 @@ export function ProjectsSection() {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
+      title: 'Real-time Pose Detection & Posture Coaching',
       description:
-        'A full-stack e-commerce solution with advanced features including real-time inventory management, payment processing, and analytics dashboard.',
+        'A real-time full-body posture detection platform for interactive workouts, integrating mobile devices and TVs to deliver AI-driven feedback during exercise sessions.',
       image: '/placeholder-project-1.jpg',
-      technologies: ['React', 'Next.js', 'TypeScript', 'PostgreSQL', 'Stripe'],
-      icons: [SiReact, SiNextdotjs, SiTypescript, SiPostgresql],
-      category: 'Full-Stack',
+      technologies: ['MediaPipe', 'TensorFlow.js', 'React', 'Next.js', 'WebRTC', 'Tailwind CSS'],
+      icons: [SiTensorflow, SiReact, SiNextdotjs, SiWebrtc],
+      category: 'AI/ML',
       status: 'Live',
       metrics: cleanMetrics({
-        users: '10K+',
+        deployed: 'Samsung TV',
         uptime: '99.9%',
-        performance: 'A+',
+        performance: 'A',
       }),
       links: {
-        demo: 'https://demo.example.com',
-        github: 'https://github.com/username/project',
+        demo: 'https://pose-webivew.vercel.app/workouts.html',
+        github: '', // 'https://github.com/username/project',
       },
       featured: true,
     },
     {
-      title: 'AI-Powered Analytics Dashboard',
+      title: 'Gait Detection Algorithm for Wearable Devices',
       description:
-        'Machine learning dashboard that provides insights and predictions for business metrics with real-time data visualization.',
+        'A sensor-fusion gait analysis algorithm that transforms wearable IoT devices into a research-grade tool, delivering metrics comparable to gold-standard motion analysis systems.',
       image: '/placeholder-project-2.jpg',
-      technologies: ['Python', 'React', 'FastAPI', 'TensorFlow', 'MongoDB'],
+      technologies: ['Sensor Fusion', 'Python', 'TensorFlow', 'Kotlin', 'Java', 'Android'],
       icons: [SiPython, SiReact, SiMongodb],
       category: 'AI/ML',
       status: 'In Development',
       metrics: cleanMetrics({
-        accuracy: '94%',
+        accuracy: '97%',
         models: '5',
-        data: '1M+ records',
+        performance: 'A+',
       }),
       links: {
-        demo: 'https://demo.example.com',
-        github: 'https://github.com/username/project',
+        demo: 'https://github.com/Sevastiyan/Sevastiyan/blob/main/projects/my_gait_algorithm/README.md',
+        github: '', // 'https://github.com/username/project',
       },
       featured: true,
     },
     {
-      title: 'Social Media Manager',
+      title: 'Sleep Enhancement IoT Device and Platform',
       description:
-        'Comprehensive social media management platform with scheduling, analytics, and team collaboration features.',
+        'IoT device and platform designed to improve sleep quality through monitoring and personalized recommendations.',
       image: '/placeholder-project-3.jpg',
-      technologies: ['Vue.js', 'Node.js', 'MongoDB', 'Redis', 'AWS'],
-      icons: [SiVuedotjs, SiNodedotjs, SiMongodb],
-      category: 'Web App',
+      technologies: ['Node.js', 'DynamoDB', 'AWS', 'TensorFlow', 'Python'],
+      icons: [SiAwslambda, SiAmazondynamodb, SiAmazon, SiNodedotjs, SiPython, SiTensorflow],
+      category: 'Platform',
       status: 'Live',
       metrics: cleanMetrics({
-        posts: '50K+',
         users: '2K+',
+        devices: '50K+',
         engagement: '85%',
       }),
       links: {
@@ -87,12 +95,12 @@ export function ProjectsSection() {
       featured: false,
     },
     {
-      title: 'Real-Time Chat Application',
+      title: 'Real-Time Dashboard for Patient Monitoring',
       description:
-        'Modern chat application with video calls, file sharing, and end-to-end encryption for secure communication.',
+        'Comprehensive dashboard for real-time monitoring of patient vitals, integrating data from IoT medical device and providing actionable insights.',
       image: '/placeholder-project-4.jpg',
-      technologies: ['React', 'Socket.io', 'Node.js', 'WebRTC', 'MongoDB'],
-      icons: [SiReact, SiNodedotjs, SiMongodb],
+      technologies: ['Android', 'Java', 'Spring Boot', 'Kotlin', 'MongoDB'],
+      icons: [SiAndroid, SiKotlin, SiMongodb, SiSpringboot],
       category: 'Real-Time',
       status: 'Live',
       metrics: cleanMetrics({
@@ -230,6 +238,8 @@ export function ProjectsSection() {
             <Button
               size='lg'
               className='rounded-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 px-8 py-4'
+              scrollTo='contact'
+              scrollAnimation='smooth'
             >
               Let's Start a Project
             </Button>

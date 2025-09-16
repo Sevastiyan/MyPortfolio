@@ -7,7 +7,6 @@ import {
   SiReact,
   SiNextdotjs,
   SiTypescript,
-  SiJavascript,
   SiNodedotjs,
   SiPython,
   SiPostgresql,
@@ -15,27 +14,24 @@ import {
   SiAmazonwebservices,
   SiDocker,
   SiGit,
-  SiFigma,
   SiTailwindcss,
-  SiVuedotjs,
   SiGraphql,
-  SiRedis,
+  SiTensorflow,
 } from 'react-icons/si'
-import { Database, Brain, Palette, Code, Server, Cloud } from 'lucide-react'
+import { Database, Brain, Palette, Code, Server, Cloud, ChartLine, Blocks } from 'lucide-react'
 
 export function SkillsSection() {
   const skillCategories = [
     {
-      title: 'Frontend Development',
-      icon: Code,
-      color: 'from-blue-500 to-purple-600',
+      title: 'AI & Data Science',
+      icon: Brain,
+      color: 'from-purple-500 to-pink-600',
       skills: [
-        { name: 'React', icon: SiReact, level: 95 },
-        { name: 'Next.js', icon: SiNextdotjs, level: 90 },
-        { name: 'TypeScript', icon: SiTypescript, level: 88 },
-        { name: 'JavaScript', icon: SiJavascript, level: 92 },
-        { name: 'Vue.js', icon: SiVuedotjs, level: 85 },
-        { name: 'Tailwind CSS', icon: SiTailwindcss, level: 90 },
+        { name: 'Data Analysis (Pandas/Numpy)', icon: SiPython, level: 92 },
+        { name: 'Deep Learning', icon: Brain, level: 90 },
+        { name: 'Machine Learning', icon: Blocks, level: 85 },
+        { name: 'TensorFlow / PyTorch', icon: SiTensorflow, level: 83 },
+        { name: 'Signal Processing', icon: ChartLine, level: 82 },
       ],
     },
     {
@@ -44,31 +40,32 @@ export function SkillsSection() {
       color: 'from-green-500 to-teal-600',
       skills: [
         { name: 'Node.js', icon: SiNodedotjs, level: 87 },
-        { name: 'Python', icon: SiPython, level: 85 },
-        { name: 'GraphQL', icon: SiGraphql, level: 80 },
-        { name: 'PostgreSQL', icon: SiPostgresql, level: 85 },
-        { name: 'MongoDB', icon: SiMongodb, level: 82 },
-        { name: 'Redis', icon: SiRedis, level: 78 },
+        { name: 'Python', icon: SiPython, level: 90 },
+        { name: 'MongoDB', icon: SiMongodb, level: 85 },
+        { name: 'PostgreSQL', icon: SiPostgresql, level: 72 },
+        { name: 'REST APIs', icon: SiGraphql, level: 80 },
       ],
     },
     {
-      title: 'DevOps & Cloud',
+      title: 'Cloud & DevOps',
       icon: Cloud,
       color: 'from-orange-500 to-red-600',
       skills: [
-        { name: 'AWS', icon: SiAmazonwebservices, level: 80 },
-        { name: 'Docker', icon: SiDocker, level: 85 },
-        { name: 'Git', icon: SiGit, level: 90 },
+        { name: 'Serverless Architectures', icon: Cloud, level: 88 },
+        { name: 'AWS (Lambda, Kinesis, DynamoDB)', icon: SiAmazonwebservices, level: 85 },
+        { name: 'Docker & Containers', icon: SiDocker, level: 78 },
+        { name: 'CI/CD & Git', icon: SiGit, level: 87 },
       ],
     },
     {
-      title: 'Design & AI',
-      icon: Brain,
-      color: 'from-purple-500 to-pink-600',
+      title: 'Frontend (Supporting)',
+      icon: Code,
+      color: 'from-blue-500 to-purple-600',
       skills: [
-        { name: 'Figma', icon: SiFigma, level: 75 },
-        { name: 'UI/UX Design', icon: Palette, level: 80 },
-        { name: 'AI/ML', icon: Brain, level: 70 },
+        { name: 'React', icon: SiReact, level: 85 },
+        { name: 'Next.js', icon: SiNextdotjs, level: 82 },
+        { name: 'TypeScript', icon: SiTypescript, level: 80 },
+        { name: 'Tailwind CSS', icon: SiTailwindcss, level: 78 },
       ],
     },
   ]
@@ -118,24 +115,20 @@ export function SkillsSection() {
           <h3 className='text-2xl font-bold text-foreground mb-8'>Additional Technologies</h3>
           <div className='flex flex-wrap justify-center gap-3 max-w-4xl mx-auto'>
             {[
-              'REST APIs',
               'Microservices',
-              'Webpack',
+              'REST APIs',
               'Vite',
-              'Testing',
               'CI/CD',
               'Agile',
-              'Scrum',
+              'Performance',
               'Firebase',
               'Supabase',
-              'Prisma',
-              'Stripe',
-              'Socket.io',
               'WebRTC',
               'PWA',
               'SEO',
+              'Design',
               'Accessibility',
-              'Performance',
+              'Testing',
             ].map((skill, index) => (
               <SkillBadge key={index} skill={skill} index={index} />
             ))}

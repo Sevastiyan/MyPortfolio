@@ -23,20 +23,20 @@ interface ExperienceCardProps {
 export function ExperienceCard({ experience, index }: ExperienceCardProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.3,
+    threshold: 0.2,
   })
 
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${index * 300}ms` }}
+      style={{ transitionDelay: `${index * 100}ms` }}
       className={`relative flex items-center transition-all duration-1000 ease-out ${
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       } ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
     >
       {/* Enhanced Timeline dot */}
-      <div className='absolute left-4 md:left-1/2 md:transform md:-translate-x-2 z-10'>
-        <div className='w-6 h-6 bg-gradient-to-br from-primary to-accent rounded-full shadow-lg ring-4 ring-background border-2 border-primary/30'>
+      <div className='absolute left-4 md:left-1/2 md:transform md:-translate-x-2.5 z-10'>
+        <div className='w-6 h-6 bg-gradient-to-br from-primary to-accent rounded-full shadow-lg ring-1 ring-background border-2 border-primary/30'>
           <div className='w-full h-full bg-gradient-to-br from-primary to-accent rounded-full animate-pulse opacity-60' />
         </div>
       </div>

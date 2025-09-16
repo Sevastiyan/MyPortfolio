@@ -1,24 +1,27 @@
 'use client'
 
 import { HighlightCard } from './ui/highlight-card'
-import { Code, Palette, Zap } from 'lucide-react'
+import { Brain, Cloud, Code, Database, Palette, Zap } from 'lucide-react'
 
 export function AboutSection() {
   const highlights = [
     {
-      icon: Code,
-      title: 'Clean Code',
-      description: 'Writing maintainable, scalable code that stands the test of time.',
+      icon: Brain,
+      title: 'AI & Machine Learning',
+      description:
+        'Building production-ready AI from inception to deployment for real-time analytics, and biomedical signals.',
     },
     {
-      icon: Palette,
-      title: 'Design Focus',
-      description: 'Creating beautiful interfaces that provide exceptional user experiences.',
+      icon: Cloud,
+      title: 'Scalable Cloud Systems',
+      description:
+        'Designing secure, low-latency infrastructure with AWS and robust backend services.',
     },
     {
       icon: Zap,
-      title: 'Performance',
-      description: 'Optimizing applications for speed, accessibility, and user satisfaction.',
+      title: 'Data & Algorithms',
+      description:
+        'Developing advanced analytics pipelines for IoT devices, and signal processing with precision.',
     },
   ]
 
@@ -64,10 +67,11 @@ export function AboutSection() {
           <div className='space-y-8 lg:order-1'>
             <div className='space-y-6'>
               <p className='text-xl text-muted-foreground leading-relaxed'>
-                With over 5 years of experience in web development, I specialize in creating modern,
-                responsive applications using cutting-edge technologies. My journey started with a
-                curiosity about how things work on the web, and it has evolved into a passion for
-                crafting exceptional digital experiences.
+                With over 6 years of experience in AI engineering and full-stack development, I
+                build intelligent, scalable, and user-centric applications. My journey began with
+                data algorithms for biomedical devices and has grown into creating production-grade
+                systems that blend machine learning, cloud infrastructure, and engaging digital
+                experiences.
               </p>
 
               <p className='text-xl text-muted-foreground leading-relaxed'>
@@ -78,14 +82,18 @@ export function AboutSection() {
             </div>
 
             {/* Key stats or achievements */}
-            <div className='grid grid-cols-2 gap-6 pt-6'>
+            <div className='grid grid-cols-3 gap-6 pt-6'>
               <div className='text-center'>
-                <div className='text-3xl font-bold text-primary mb-2'>5+</div>
+                <div className='text-3xl font-bold text-primary mb-2'>6+</div>
                 <div className='text-sm text-muted-foreground'>Years Experience</div>
               </div>
               <div className='text-center'>
-                <div className='text-3xl font-bold text-accent mb-2'>100K+</div>
-                <div className='text-sm text-muted-foreground'>Users Served</div>
+                <div className='text-3xl font-bold text-accent mb-2'>5+</div>
+                <div className='text-sm text-muted-foreground'>Projects Delivered</div>
+              </div>
+              <div className='text-center'>
+                <div className='text-3xl font-bold text-accent mb-2'>7+</div>
+                <div className='text-sm text-muted-foreground'>AI Models in Production</div>
               </div>
             </div>
           </div>
