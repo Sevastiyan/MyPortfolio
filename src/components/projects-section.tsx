@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { Badge } from './ui/badge'
 import { Button } from './ui/button'
-import { ExternalLink, Github, Calendar, Users } from 'lucide-react'
+import { ExternalLink, Github, Calendar, Users, MapPin } from 'lucide-react'
 import {
   SiReact,
   SiNextdotjs,
@@ -43,6 +43,7 @@ export function ProjectsSection() {
       icons: [SiTensorflow, SiReact, SiNextdotjs, SiWebrtc],
       category: 'AI/ML',
       status: 'Live',
+      location: 'Seoul, South Korea',
       metrics: cleanMetrics({
         deployed: 'Samsung TV',
         uptime: '99.9%',
@@ -63,6 +64,7 @@ export function ProjectsSection() {
       icons: [SiPython, SiReact, SiMongodb],
       category: 'AI/ML',
       status: 'In Development',
+      location: 'Singapore',
       metrics: cleanMetrics({
         accuracy: '97%',
         models: '5',
@@ -83,13 +85,14 @@ export function ProjectsSection() {
       icons: [SiAwslambda, SiAmazondynamodb, SiAmazon, SiNodedotjs, SiPython, SiTensorflow],
       category: 'Platform',
       status: 'Live',
+      location: 'Seoul, South Korea',
       metrics: cleanMetrics({
         users: '2K+',
         devices: '50K+',
         engagement: '85%',
       }),
       links: {
-        demo: 'https://demo.example.com',
+        demo: 'https://www.wethm.com/',
         github: 'https://github.com/username/project',
       },
       featured: false,
@@ -103,6 +106,7 @@ export function ProjectsSection() {
       icons: [SiAndroid, SiKotlin, SiMongodb, SiSpringboot],
       category: 'Real-Time',
       status: 'Live',
+      location: 'Seoul, South Korea',
       metrics: cleanMetrics({
         messages: '1M+',
         users: '5K+',
@@ -123,6 +127,7 @@ export function ProjectsSection() {
       icons: [SiNextdotjs, SiTypescript, SiTailwindcss],
       category: 'SaaS',
       status: 'Beta',
+      location: 'Singapore',
       metrics: cleanMetrics({
         templates: '50+',
         users: '1K+',
@@ -158,6 +163,19 @@ export function ProjectsSection() {
       <div
         className='absolute bottom-40 right-10 w-32 h-32 rounded-full bg-primary/5 animate-float'
         style={{ animationDelay: '2s' }}
+      />
+      {/* New decorative elements */}
+      <div
+        className='absolute top-1/2 right-1/4 w-48 h-48 rounded-full bg-secondary/5 animate-float'
+        style={{ animationDelay: '1s' }}
+      />
+      <div
+        className='absolute bottom-10 left-10 w-24 h-24 rounded-full bg-accent/5 animate-float'
+        style={{ animationDelay: '3s' }}
+      />
+      <div
+        className='absolute top-1/4 right-3/4 w-20 h-20 rounded-full bg-primary/5 animate-float -z-10'
+        style={{ animationDelay: '4s' }}
       />
 
       <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -259,6 +277,7 @@ interface ProjectCardProps {
     icons: any[]
     category: string
     status: string
+    location: string
     metrics: Record<string, string>
     links: {
       demo: string
@@ -284,84 +303,63 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       }`}
     >
       <Card className='group h-full flex flex-col glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden'>
-        {/* Project Image */}
-        <div className='relative h-48 bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden'>
-          {/* Placeholder for project image */}
-          <div className='absolute inset-0 flex items-center justify-center'>
-            <div className='text-6xl opacity-20'>🚀</div>
-          </div>
-
-          {/* Status Badge */}
-          <div className='absolute top-4 right-4'>
-            <Badge
-              variant={project.status === 'Live' ? 'default' : 'secondary'}
-              className={`${
-                project.status === 'Live' ? 'bg-green-500 text-white' : 'bg-yellow-500 text-black'
-              }`}
-            >
-              {project.status}
-            </Badge>
-          </div>
-
-          {/* Category */}
-          <div className='absolute top-4 left-4'>
-            <Badge variant='default' className='glass'>
-              {project.category}
-            </Badge>
-          </div>
-        </div>
-
-        <CardHeader className='pb-4'>
+        {/* Use a single content container with flexbox to space out the 5 sections */}
+        <CardContent className='p-6 mt-8 flex-1 flex flex-col justify-between space-y-4'>
+          {/* 1. Title */}
           <CardTitle className='text-xl group-hover:text-primary transition-colors duration-300 line-clamp-2'>
             {project.title}
           </CardTitle>
-          <p className='text-muted-foreground leading-relaxed line-clamp-3'>
-            {project.description}
-          </p>
-        </CardHeader>
-
-        {/* Make content stretch + push links down */}
-        <CardContent className='flex-1 flex flex-col justify-between'>
-          <div className='space-y-6'>
-            {/* Technologies */}
-            <div className='flex items-center space-x-3'>
-              {project.icons.slice(0, 4).map((Icon, iconIndex) => (
-                <div
-                  key={iconIndex}
-                  className='p-2 rounded-lg bg-muted/50 group-hover:bg-primary/10 transition-colors duration-300'
-                >
-                  <Icon className='h-5 w-5 text-primary' />
-                </div>
-              ))}
-              {project.icons.length > 4 && (
-                <div className='p-2 rounded-lg bg-muted/50 text-xs text-muted-foreground'>
-                  +{project.icons.length - 4}
-                </div>
-              )}
-            </div>
-
-            {/* Metrics */}
-            <div className='grid grid-cols-3 gap-2 text-center min-h-[60px]'>
-              {Object.entries(project.metrics)
-                .slice(0, 3)
-                .map(([key, value], metricIndex) => (
-                  <div key={metricIndex} className='space-y-1'>
-                    <div className='text-sm font-bold text-primary'>{value}</div>
-                    <div className='text-xs text-muted-foreground capitalize'>{key}</div>
-                  </div>
-                ))}
-            </div>
+          <div className='flex items-center text-sm text-muted-foreground mt-2'>
+            <MapPin className='h-3 w-3 mr-1.5' />
+            <span>{project.location}</span>
           </div>
 
-          {/* Links pinned at bottom */}
-          <div className='flex space-x-3 pt-6'>
+          {/* 2. Description */}
+          <p className='text-muted-foreground leading-relaxed line-clamp-3 flex-grow'>
+            {project.description}
+          </p>
+
+          {/* 3. Icons */}
+          <div className='flex items-center space-x-3'>
+            {project.icons.slice(0, 4).map((Icon, iconIndex) => (
+              <div
+                key={iconIndex}
+                className='p-2 rounded-lg bg-muted/50 group-hover:bg-primary/10 transition-colors duration-300'
+              >
+                <Icon className='h-5 w-5 text-primary' />
+              </div>
+            ))}
+            {project.icons.length > 4 && (
+              <div className='p-2 rounded-lg bg-muted/50 text-xs text-muted-foreground'>
+                +{project.icons.length - 4}
+              </div>
+            )}
+          </div>
+
+          {/* 4. Metrics */}
+          <div className='grid grid-cols-3 gap-2 text-center min-h-[60px] items-center'>
+            {Object.entries(project.metrics)
+              .slice(0, 3)
+              .map(([key, value], metricIndex) => (
+                <div key={metricIndex} className='space-y-1'>
+                  <div className='text-sm font-bold text-primary'>{value}</div>
+                  <div className='text-xs text-muted-foreground capitalize'>{key}</div>
+                </div>
+              ))}
+          </div>
+
+          {/* 5. Links */}
+          <div className='flex space-x-3'>
             <Button
               variant='outline'
               size='sm'
+              externalLink={project.links.demo}
               className='flex-1 rounded-full glass border-primary/30 hover:bg-primary/10'
             >
-              <ExternalLink className='h-4 w-4 mr-2' />
-              Demo
+              <div className='flex items-center gap-2'>
+                <ExternalLink className='h-4 w-4 mr-2' />
+                View
+              </div>
             </Button>
             <Button
               variant='outline'
@@ -428,6 +426,10 @@ function FeaturedProjectCard({ project, index }: ProjectCardProps) {
             </Badge>
           </div>
           <p className='text-muted-foreground leading-relaxed text-lg'>{project.description}</p>
+          <div className='flex items-center text-sm text-muted-foreground mt-2'>
+            <MapPin className='h-3 w-3 mr-1.5' />
+            <span>{project.location}</span>
+          </div>
         </CardHeader>
 
         <CardContent className='space-y-6'>

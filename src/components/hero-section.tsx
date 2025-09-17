@@ -18,7 +18,7 @@ export function HeroSection() {
       <div className='mt-50 pb-20'>
         {/* Floating Elements for Visual Interest */}
         <div
-          className='absolute top-20 left-10 w-20 h-20 rounded-full bg-primary/10 animate-float'
+          className='absolute top-20 left-10 w-20 h-20 rounded-full bg-primary/15 animate-float'
           style={{ animationDelay: '0s' }}
         />
         <div
@@ -26,7 +26,7 @@ export function HeroSection() {
           style={{ animationDelay: '1s' }}
         />
         <div
-          className='absolute bottom-40 left-20 w-12 h-12 rounded-full bg-secondary/10 animate-float'
+          className='absolute bottom-40 left-1/4 w-12 h-12 rounded-full bg-secondary/15 animate-float'
           style={{ animationDelay: '2s' }}
         />
 

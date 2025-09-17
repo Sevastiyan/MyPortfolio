@@ -38,13 +38,17 @@ export function Navigation() {
     setIsOpen(false)
   }
 
-  const navItems = [
+  type NavItem =
+    | { id: string; label: string; type: 'scroll' }
+    | { id: string; label: string; type: 'link'; href: string }
+
+  const navItems: NavItem[] = [
     { id: 'home', label: 'Home', type: 'scroll' },
     { id: 'about', label: 'About', type: 'scroll' },
     { id: 'projects', label: 'Projects', type: 'scroll' },
     { id: 'skills', label: 'Skills', type: 'scroll' },
     { id: 'experience', label: 'Experience', type: 'scroll' },
-    { id: 'blog', label: 'Blog', type: 'link', href: '/blog' },
+    // { id: 'blog', label: 'Blog', type: 'link', href: '/blog' },
     { id: 'contact', label: 'Contact', type: 'scroll' },
   ]
 
@@ -62,7 +66,7 @@ export function Navigation() {
         <div className='px-6 py-4'>
           <div className='flex justify-between items-center'>
             <div className='font-bold text-xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent'>
-              Sevastiyan's Portfolio
+              Sevastiyan
             </div>
 
             {/* Desktop Navigation */}

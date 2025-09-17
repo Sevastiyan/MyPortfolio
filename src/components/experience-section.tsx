@@ -84,8 +84,20 @@ export function ExperienceSection() {
         style={{ animationDelay: '0s' }}
       />
       <div
-        className='absolute bottom-40 right-20 w-32 h-32 rounded-full bg-accent/5 animate-float'
+        className='absolute bottom-1/6 left-1/3 w-32 h-32 rounded-full bg-accent/10 animate-float'
         style={{ animationDelay: '1s' }}
+      />
+      <div
+        className='absolute top-1/4 right-1/4 w-48 h-48 rounded-full bg-secondary/15 animate-float'
+        style={{ animationDelay: '1s' }}
+      />
+      <div
+        className='absolute bottom-1/2 left-1/5 w-24 h-24 rounded-full bg-primary/10 animate-float'
+        style={{ animationDelay: '3s' }}
+      />
+      <div
+        className='absolute top-10 right-1/4 w-20 h-20 rounded-full bg-primary/5 animate-float'
+        style={{ animationDelay: '4s' }}
       />
 
       <div className='relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8'>
