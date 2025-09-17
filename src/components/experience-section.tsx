@@ -1,4 +1,7 @@
 import { ExperienceCard } from './ui/experience-card'
+import { EducationCard } from './ui/education-card'
+import { GraduationCap, Briefcase, Sparkles } from 'lucide-react'
+import Button from './ui/button'
 
 export function ExperienceSection() {
   const experiences = [
@@ -23,7 +26,7 @@ export function ExperienceSection() {
     {
       title: 'AI Consultant',
       company: 'Flexosense Pte. Ltd.',
-      location: 'Singapore, SG',
+      location: 'Singapore',
       period: '2021 - 2025',
       description:
         'Built and maintained company websites and web applications. Gained experience in full-stack development and agile methodologies.',
@@ -32,11 +35,43 @@ export function ExperienceSection() {
     {
       title: 'Data Analyst',
       company: 'Flexosense Pte. Ltd.',
-      location: 'Singapore, SG',
+      location: 'Singapore',
       period: '2019 - 2021',
       description:
         'Built and maintained company websites and web applications. Gained experience in full-stack development and agile methodologies.',
       technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
+    },
+  ]
+
+  const education = [
+    {
+      degree: 'Master of Science in Medialogy',
+      school: 'Aalborg University',
+      location: 'Copenhagen, Denmark',
+      period: '2016 - 2018',
+      description:
+        'Conducted research on user interaction and experience with interactive systems. Developed a thesis on the impact of recommendation systems.',
+      achievements: ['Magna Cum Laude', 'AI Research Fellowship', "Dean's List"],
+      coursework: ['Machine Learning', 'Deep Learning', 'Data Structures', 'Algorithms'],
+    },
+    {
+      degree: 'Bachelor of Engineering in Global Business Engineering',
+      school: 'VIA University',
+      location: 'Horsens, Denmark',
+      period: '2009 - 2014',
+      description:
+        'Focused on the intersection of technology and business. Developed a strong foundation in software development and project management.',
+      achievements: [
+        'Summa Cum Laude',
+        'ACM Programming Contest Winner',
+        'Outstanding Student Award',
+      ],
+      coursework: [
+        'Software Engineering',
+        'Database Systems',
+        'Web Development',
+        'Mobile Development',
+      ],
     },
   ]
 
@@ -57,32 +92,75 @@ export function ExperienceSection() {
         <div className='text-center mb-20'>
           <div className='inline-block mb-6'>
             <span className='inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20'>
-              🚀 Career Journey
+              🚀 My Journey
             </span>
           </div>
 
           <h2 className='text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance'>
-            Professional{' '}
+            Experience &{' '}
             <span className='bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent'>
-              Experience
+              Education
             </span>
           </h2>
 
           <p className='text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed'>
-            My journey through the world of{' '}
-            <span className='text-primary font-medium'>software development</span>
+            My journey through <span className='text-primary font-medium'>professional growth</span>{' '}
+            and <span className='text-accent font-medium'>academic excellence</span>
           </p>
         </div>
 
+        {/* Experience Header */}
+        <div className='relative flex-row items-center justify-center mb-4 md:mb-12'>
+          <div className='ml-4 md:ml-0 md:text-center'>
+            <div className='flex items-center text-start md:text-center justify-start md:justify-center mb-2'>
+              <Briefcase className='h-6 w-6 text-primary inline-block mr-4' />
+              <h3 className='text-2xl md:text-3xl font-bold text-primary mb-2'>
+                Professional Experience
+              </h3>
+            </div>
+          </div>
+          <div className='ml-4 md:ml-0 md:text-center w-full md:w-full'>
+            <p className='text-sm text-muted-foreground italic'>Today</p>
+          </div>
+        </div>
+
+        {/* Timeline */}
         <div className='relative'>
           {/* Enhanced Timeline line */}
-          <div className='absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary/20 via-primary to-accent/20 md:transform md:-translate-x-0 rounded-full shadow-lg' />
+          <div className='space-y-4 md:space-y-0 mb-16'>
+            {/* Experience Header with Icon */}
+            <div className='absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary/20 via-primary to-accent rounded-full shadow-lg md:transform md:-translate-x-0' />
 
-          <div className='space-y-0'>
+            {/* Experience Section */}
+
             {experiences.map((experience, index) => (
               <ExperienceCard key={index} experience={experience} index={index} />
             ))}
           </div>
+
+          {/* Education Section */}
+          <div className='space-y-4 md:space-y-0 '>
+            {/* Education Header with Icon */}
+            <div className='relative flex items-start justify-start mb-12'>
+              <div className='ml-12 md:ml-4 w-full md:w-1/2 md:flex items-center text-center'>
+                <GraduationCap className='h-6 w-6 text-accent inline-block mr-4' />
+                <h3 className='text-2xl md:text-3xl font-bold text-accent mb-2'>
+                  Academic Background
+                </h3>
+              </div>
+            </div>
+
+            {education.map((edu, index) => (
+              <EducationCard key={index} education={edu} index={index + experiences.length} />
+            ))}
+          </div>
+        </div>
+        {/* Button to download Resume */}
+        <div className='text-center mt-12'>
+          <Button variant='default' size='lg' className='flex items-center'>
+            <Sparkles className='h-5 w-5 mr-2' />
+            Download My Resume
+          </Button>
         </div>
       </div>
     </section>

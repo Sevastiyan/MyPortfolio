@@ -45,12 +45,12 @@ export default function Portfolio() {
       <Navigation />
       <div className=''>
         <HeroSection />
-        <CertificationsSection />
 
         <AboutSection />
         <ProjectsSection />
         {/* <BlogPreviewSection /> */}
         <SkillsSection />
+        <CertificationsSection />
         <ExperienceSection />
         <ContactSection />
       </div>

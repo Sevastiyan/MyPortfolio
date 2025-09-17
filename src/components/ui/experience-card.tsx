@@ -35,7 +35,7 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
       } ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
     >
       {/* Enhanced Timeline dot */}
-      <div className='absolute left-4 md:left-1/2 md:transform md:-translate-x-2.5 z-10'>
+      <div className='absolute left-1.5 md:left-1/2 md:transform md:-translate-x-2.5 z-10'>
         <div className='w-6 h-6 bg-gradient-to-br from-primary to-accent rounded-full shadow-lg ring-1 ring-background border-2 border-primary/30'>
           <div className='w-full h-full bg-gradient-to-br from-primary to-accent rounded-full animate-pulse opacity-60' />
         </div>
@@ -50,7 +50,7 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
             <CardTitle className='text-xl lg:text-2xl font-bold group-hover:text-primary transition-colors duration-300'>
               {experience.title}
             </CardTitle>
-            <div className='space-y-3'>
+            <div className='space-y-3 mt-6'>
               <div className='flex items-center text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300'>
                 <div className='flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 mr-3 group-hover:bg-primary/20 transition-colors duration-300'>
                   <MapPin className='h-4 w-4 text-primary' />
