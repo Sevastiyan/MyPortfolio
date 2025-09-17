@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+// import { Geist, Geist_Mono } from 'next/font/google'
+import { Sora, Geist_Mono, Figtree } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Plus } from 'lucide-react'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const sora = Sora({
+  variable: '--font-sora',
   subsets: ['latin'],
 })
 
@@ -14,7 +16,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'My Portfolio',
+  title: 'Sevastiyan Tsvetkov',
   description: 'Modern portfolio showcasing projects, skills, and professional experience',
   icons: {
     icon: '/portfolio.png',
@@ -28,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${sora.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider defaultTheme='dark' enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

@@ -9,19 +9,19 @@ export function AboutSection() {
       icon: Brain,
       title: 'AI & Machine Learning',
       description:
-        'Building production-ready AI from inception to deployment for real-time analytics, and biomedical signals.',
+        'End-to-end development of production ready AI systems for real-time analytics and biomedical signal processing.',
     },
     {
       icon: Cloud,
       title: 'Scalable Cloud Systems',
       description:
-        'Designing secure, low-latency infrastructure with AWS and robust backend services.',
+        'Engineering secure, low-latency architectures with AWS while building robust backend services that grow.',
     },
     {
       icon: Zap,
       title: 'Data & Algorithms',
       description:
-        'Developing advanced analytics pipelines for IoT devices, and signal processing with precision.',
+        'Designing backend solutions for IoT and wearable devices, that apply analytics to extract meaningful insights with accuracy.',
     },
   ]
 
@@ -58,8 +58,9 @@ export function AboutSection() {
           </h2>
 
           <p className='text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed'>
-            Passionate developer with a love for creating digital experiences that{' '}
-            <span className='text-primary font-medium'>matter</span>
+            <span className='text-accent font-medium'>Passionate</span> developer with a love for
+            creating <span className='text-primary font-medium'> digital experiences </span> that
+            matter
           </p>
         </div>
 
@@ -67,17 +68,17 @@ export function AboutSection() {
           <div className='space-y-8 lg:order-1'>
             <div className='space-y-6'>
               <p className='text-xl text-muted-foreground leading-relaxed'>
-                With over 6 years of experience in AI engineering and full-stack development, I
-                build intelligent, scalable, and user-centric applications. My journey began with
-                data algorithms for biomedical devices and has grown into creating production-grade
-                systems that blend machine learning, cloud infrastructure, and engaging digital
-                experiences.
+                With 6+ years of experience in AI engineering and full-stack development, I craft
+                applications that are not only intelligent but also scalable and human-centric. My
+                career started with biomedical data algorithms and has evolved into developing
+                production-grade systems that integrate machine learning, cloud platforms, and
+                intuitive digital experiences.
               </p>
 
               <p className='text-xl text-muted-foreground leading-relaxed'>
-                I believe in the power of clean code, thoughtful design, and continuous learning.
-                When I'm not coding, you can find me exploring new technologies, contributing to
-                open source projects, or sharing knowledge with the developer community.
+                I thrive on solving complex problems and turning ideas into reality. Whether
+                architecting cloud-native solutions or intuitively analyzing data, I bring a
+                holistic approach to software development.
               </p>
             </div>
 
@@ -127,7 +128,7 @@ export function AboutSection() {
               What I Bring to the Table
             </h3>
             <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-              Core values and skills that drive my development approach
+              Core strengths shaping how I design and deliver technology
             </p>
           </div>
 

@@ -204,8 +204,8 @@ const CertificationsSection: React.FC = () => {
       {/* Custom CSS for the animation */}
       <style jsx>{`
         .animate-scroll {
-          animation: scroll 30s linear infinite;
-          width: calc(320px * 12);
+          animation: scroll 20s linear infinite;
+          width: calc(345px * 12);
         }
 
         .animate-scroll:hover {
@@ -221,14 +221,14 @@ const CertificationsSection: React.FC = () => {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-320px * 6));
+            transform: translateX(calc(-345px * 6));
           }
         }
 
         @media (max-width: 768px) {
           .animate-scroll {
             animation: scroll-mobile 25s linear infinite;
-            width: calc(280px * 12);
+            width: calc(280px * 6);
           }
 
           @keyframes scroll-mobile {

@@ -104,12 +104,20 @@ export function ContactSection() {
       {/* Background Elements */}
       <div className='absolute inset-0 bg-gradient-to-t from-primary/5 via-background to-background' />
       <div
-        className='absolute top-20 left-20 w-40 h-40 rounded-full bg-accent/5 animate-float'
+        className='absolute top-20 left-20 w-40 h-40 rounded-full bg-accent/10 animate-float'
         style={{ animationDelay: '0s' }}
       />
       <div
-        className='absolute bottom-40 right-10 w-32 h-32 rounded-full bg-primary/5 animate-float'
+        className='absolute top-40 right-20 w-40 h-40 rounded-full bg-primary/5 animate-float'
+        style={{ animationDelay: '0s' }}
+      />
+      <div
+        className='absolute bottom-40 right-10 w-32 h-32 rounded-full bg-primary/10 animate-float'
         style={{ animationDelay: '2s' }}
+      />
+      <div
+        className='absolute bottom-1/2 left-50 w-32 h-32 rounded-full bg-accent/5 animate-float'
+        style={{ animationDelay: '1s' }}
       />
 
       <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
