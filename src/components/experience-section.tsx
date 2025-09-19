@@ -12,7 +12,7 @@ export function ExperienceSection() {
       period: '2024 - Present',
       description:
         'Lead development of scalable web applications serving 100K+ users. Mentored junior developers and implemented best practices for code quality and performance.',
-      technologies: ['React', 'Node.js', 'AWS', 'TypeScript', 'PostgreSQL'],
+      technologies: ['Java', 'Node.js', 'AWS', 'TypeScript', 'WebRTC'],
     },
     {
       title: 'Full Stack Engineer',
@@ -21,7 +21,7 @@ export function ExperienceSection() {
       period: '2021 - 2024',
       description:
         'Developed responsive web applications and collaborated with design teams to create exceptional user experiences. Improved application performance by 40%.',
-      technologies: ['Vue.js', 'JavaScript', 'SCSS', 'Firebase', 'Figma'],
+      technologies: ['Node.js', 'TypeScript', 'AWS', ''],
     },
     {
       title: 'AI Consultant',
@@ -30,7 +30,7 @@ export function ExperienceSection() {
       period: '2021 - 2025',
       description:
         'Built and maintained company websites and web applications. Gained experience in full-stack development and agile methodologies.',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
+      technologies: ['Python', 'Sensor Fusion', 'Deep Learning', 'Machine Learning', 'AWS'],
     },
     {
       title: 'Data Analyst',
@@ -84,8 +84,8 @@ export function ExperienceSection() {
         style={{ animationDelay: '0s' }}
       />
       <div
-        className='absolute bottom-1/6 left-1/3 w-32 h-32 rounded-full bg-accent/10 animate-float'
-        style={{ animationDelay: '1s' }}
+        className='absolute bottom-4/14 right-1/8 w-32 h-32 rounded-full bg-accent/5 animate-float'
+        style={{ animationDelay: '3s' }}
       />
       <div
         className='absolute top-1/4 right-1/4 w-48 h-48 rounded-full bg-secondary/15 animate-float'

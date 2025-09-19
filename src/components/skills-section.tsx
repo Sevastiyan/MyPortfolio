@@ -174,7 +174,7 @@ function SkillCategory({ category, index }: SkillCategoryProps) {
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
-      <Card className='group p-8 glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl'>
+      <Card className='group py-8 px-1 md:px-8 glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl'>
         {/* Background gradient on hover */}
         <div className='absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
 
@@ -211,14 +211,14 @@ interface SkillItemProps {
 
 function SkillItem({ skill, index, inView }: SkillItemProps) {
   return (
-    <div className='flex items-center space-x-4'>
+    <div className='flex items-center space-x-2'>
       <div className='flex items-center justify-center w-10 h-10 rounded-xl bg-muted/50 group-hover:bg-primary/10 transition-colors duration-300'>
         <skill.icon className='h-5 w-5 text-primary' />
       </div>
 
       <div className='flex-1'>
         <div className='flex justify-between items-center mb-2'>
-          <span className='font-medium text-foreground'>{skill.name}</span>
+          <span className='font-medium text-sm md:text-md text-foreground'>{skill.name}</span>
           <span className='text-sm text-muted-foreground'>{skill.level}%</span>
         </div>
 

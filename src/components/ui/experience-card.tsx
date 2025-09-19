@@ -55,21 +55,21 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
                 <div className='flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 mr-3 group-hover:bg-primary/20 transition-colors duration-300'>
                   <MapPin className='h-4 w-4 text-primary' />
                 </div>
-                <span className='font-semibold'>{experience.company}</span>
+                <span className='font-semibold text-sm md:text-lg'>{experience.company}</span>
                 <span className='mx-2 text-primary'>•</span>
-                <span>{experience.location}</span>
+                <span className='text-xs md:text-sm'>{experience.location}</span>
               </div>
               <div className='flex items-center text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300'>
                 <div className='flex items-center justify-center w-8 h-8 rounded-full bg-accent/10 mr-3 group-hover:bg-accent/20 transition-colors duration-300'>
                   <Calendar className='h-4 w-4 text-accent' />
                 </div>
-                <span className='font-medium'>{experience.period}</span>
+                <span className='font-medium text-sm md:text-lg'>{experience.period}</span>
               </div>
             </div>
           </CardHeader>
 
           <CardContent className='relative space-y-6'>
-            <p className='text-muted-foreground leading-relaxed text-lg group-hover:text-foreground/80 transition-colors duration-300'>
+            <p className='text-muted-foreground leading-relaxed text-sm md:text-lg group-hover:text-foreground/80 transition-colors duration-300'>
               {experience.description}
             </p>
             <div className='flex flex-wrap gap-2'>
@@ -77,7 +77,7 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
                 <Badge
                   key={techIndex}
                   variant='secondary'
-                  className='px-3 py-1 text-sm font-medium bg-muted/50 hover:bg-primary/10 hover:text-primary border border-border hover:border-primary/30 transition-all duration-300'
+                  className='px-3 py-1 font-medium bg-muted/50 hover:bg-primary/10 hover:text-primary border border-border hover:border-primary/30 transition-all duration-300'
                 >
                   {tech}
                 </Badge>

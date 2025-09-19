@@ -45,7 +45,7 @@ export function ProjectsSection() {
       status: 'Live',
       location: 'Seoul, South Korea',
       metrics: cleanMetrics({
-        deployed: 'Samsung TV',
+        SamsungTV: 'Deployed',
         uptime: '99.9%',
         performance: 'A',
       }),
@@ -315,7 +315,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           {/* 2. Description */}
-          <p className='text-muted-foreground leading-relaxed line-clamp-3 flex-grow'>
+          <p className='text-muted-foreground text-sm md:text-lg leading-relaxed line-clamp-3 flex-grow'>
             {project.description}
           </p>
 
@@ -418,14 +418,16 @@ function FeaturedProjectCard({ project, index }: ProjectCardProps) {
 
         <CardHeader>
           <div className='flex justify-between items-start mb-2'>
-            <CardTitle className='text-2xl group-hover:text-primary transition-colors duration-300'>
+            <CardTitle className='text-lg md:text-xl group-hover:text-primary max-w-[80%] transition-colors duration-300'>
               {project.title}
             </CardTitle>
             <Badge variant='outline' className='glass border-primary/30'>
               {project.category}
             </Badge>
           </div>
-          <p className='text-muted-foreground leading-relaxed text-lg'>{project.description}</p>
+          <p className='text-muted-foreground leading-relaxed text-sm md:text-lg'>
+            {project.description}
+          </p>
           <div className='flex items-center text-sm text-muted-foreground mt-2'>
             <MapPin className='h-3 w-3 mr-1.5' />
             <span>{project.location}</span>
@@ -456,10 +458,10 @@ function FeaturedProjectCard({ project, index }: ProjectCardProps) {
               {Object.entries(project.metrics).map(([key, value], metricIndex) => (
                 <div
                   key={metricIndex}
-                  className='text-center p-3 rounded-xl bg-muted/30 group-hover:bg-primary/5 transition-colors duration-300'
+                  className='text-center text-xs md:text-sm p-3 rounded-xl bg-muted/30 group-hover:bg-primary/5 transition-colors duration-300'
                 >
-                  <div className='text-xl font-bold text-primary'>{value}</div>
-                  <div className='text-sm text-muted-foreground capitalize'>{key}</div>
+                  <div className='text-md md:text-xl font-bold text-primary'>{value}</div>
+                  <div className='text-xs md:text-sm text-muted-foreground capitalize'>{key}</div>
                 </div>
               ))}
             </div>

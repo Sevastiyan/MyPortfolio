@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 // import { Geist, Geist_Mono } from 'next/font/google'
-import { Sora, Geist_Mono, Figtree } from 'next/font/google'
+import { Sora, Geist_Mono, Figtree, Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Plus } from 'lucide-react'

@@ -82,7 +82,7 @@ const CertificationsSection: React.FC = () => {
         style={{ animationDelay: '0s' }}
       />
       <div
-        className='absolute bottom-40 right-10 w-32 h-32 rounded-full bg-primary/5 animate-float'
+        className='absolute bottom-1/3 right-10 w-32 h-32 rounded-full bg-primary/5 animate-float'
         style={{ animationDelay: '2s' }}
       />
 
@@ -113,7 +113,7 @@ const CertificationsSection: React.FC = () => {
           <div className='flex animate-scroll hover:animation-paused'>
             {infiniteCertifications.map((cert, index) => (
               <div key={`${cert.title}-${index}`} className='flex-shrink-0 w-80 mr-6'>
-                <Card className='group h-full glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl'>
+                <Card className='group h-full mb-1 glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl'>
                   {/* Background gradient on hover */}
                   <div className='absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
 
@@ -141,15 +141,10 @@ const CertificationsSection: React.FC = () => {
                     <CardTitle className='text-lg leading-tight group-hover:text-primary transition-colors duration-300'>
                       {cert.title}
                     </CardTitle>
-
-                    {cert.credentialId && (
-                      <div className='text-xs font-mono bg-muted/50 px-2 py-1 rounded border border-border/50 inline-block mt-2'>
-                        ID: {cert.credentialId}
-                      </div>
-                    )}
                   </CardHeader>
 
-                  <CardContent className='relative space-y-4'>
+                  {/* Only show content on md+ screens */}
+                  <CardContent className='hidden md:block relative space-y-4'>
                     {/* Description */}
                     {cert.description && (
                       <p className='text-sm text-muted-foreground leading-relaxed line-clamp-3 group-hover:text-foreground/80 transition-colors duration-300'>
@@ -164,7 +159,7 @@ const CertificationsSection: React.FC = () => {
                           <Badge
                             key={topic}
                             variant='secondary'
-                            className='text-xs bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors duration-300'
+                            className='bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors duration-300'
                           >
                             {topic}
                           </Badge>
