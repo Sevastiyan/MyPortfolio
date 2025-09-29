@@ -180,8 +180,8 @@ const CertificationsSection: React.FC = () => {
               Continuous Learning
             </h3>
             <p className='text-muted-foreground mb-6 max-w-2xl mx-auto'>
-              I'm committed to staying current with industry trends and continuously expanding my
-              skill set through professional certifications and hands-on learning.
+              I'm committed to sitting on the edge of current industry trends and continuously
+              expanding my skill set through professional certifications and hands-on learning.
             </p>
             <Button
               variant='outline'

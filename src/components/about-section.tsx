@@ -57,28 +57,49 @@ export function AboutSection() {
             </span>
           </h2>
 
-          <p className='text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed'>
-            <span className='text-accent font-medium'>Passionate</span> developer with a love for
-            creating <span className='text-primary font-medium'> digital experiences </span> that
-            matter
+          <p className='text-xl sm:text-2xl text-muted-foreground max-w-xl mx-auto text-pretty leading-relaxed'>
+            Turning <span className='text-primary font-medium'>Research</span> into Production-Ready
+            AI {'\n'} From Lab Precision to{' '}
+            <span className='text-accent font-medium'>Scalable Products</span>
           </p>
         </div>
 
         <div className='grid lg:grid-cols-2 gap-20 items-center mb-20'>
           <div className='space-y-8 lg:order-1'>
             <div className='space-y-6'>
-              <p className='text-xl text-muted-foreground leading-relaxed'>
-                With 6+ years of experience in AI engineering and full-stack development, I craft
-                applications that are not only intelligent but also scalable and human-centric. My
-                career started with biomedical data algorithms and has evolved into developing
-                production-grade systems that integrate machine learning, cloud platforms, and
-                intuitive digital experiences.
+              <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
+                I build systems that bridge research and reality. At FlexoSense, I engineered a gait
+                analysis pipeline that brought lab-grade biomechanics to consumer IoT insoles,
+                showing that precision once locked in $100k labs can be accessible through
+                thoughtful engineering.
               </p>
 
-              <p className='text-xl text-muted-foreground leading-relaxed'>
-                I thrive on solving complex problems and turning ideas into reality. Whether
-                architecting cloud-native solutions or intuitively analyzing data, I bring a
-                holistic approach to software development.
+              <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
+                Since then, I’ve carried the same principle into new domains. At Wethm, I scaled
+                biosignal analytics into a sleep-monitoring product, integrating real-time
+                processing and subscription infrastructure to move it from prototype to market. At
+                Neurabody, I’ve led two flagship initiatives:
+              </p>
+
+              <dl className='space-y-4'>
+                <div>
+                  <dt className='text-sm font-semibold text-primary'>Posture detection</dt>
+                  <dd className='text-md md:text-lg text-muted-foreground leading-relaxed'>
+                    A low-latency posture stack running on Samsung Smart TVs
+                  </dd>
+                </div>
+
+                <div>
+                  <dt className='text-sm font-semibold text-accent'>Ergonomic seat</dt>
+                  <dd className='text-md md:text-lg text-muted-foreground leading-relaxed'>
+                    Backend for a smart seat that gained strong market traction and investment
+                  </dd>
+                </div>
+              </dl>
+
+              <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
+                Across it all, my focus stays the same — extracting clear data and turning it into
+                research-backed methods for production-ready systems at scale.
               </p>
             </div>
 
