@@ -4,8 +4,19 @@ import { useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { Button } from './ui/button'
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Calendar } from 'lucide-react'
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  Twitter,
+  Calendar,
+  CheckCircle,
+} from 'lucide-react'
 import { SiGithub, SiLinkedin, SiX, SiGmail } from 'react-icons/si'
+import { useContactForm } from '@/hooks/useContactForm'
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -14,7 +25,8 @@ export function ContactSection() {
     subject: '',
     message: '',
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const { submitForm, isSubmitting, error, success } = useContactForm()
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -26,25 +38,18 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    await submitForm(formData)
 
-    // Here you would integrate with your preferred email service
-    console.log('Form submitted:', formData)
-
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    })
-    setIsSubmitting(false)
-
-    // Show success message (you can add toast notification here)
-    alert("Message sent successfully! I'll get back to you soon.")
+    // Reset form on success
+    if (success) {
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      })
+    }
   }
 
   const contactInfo = [
@@ -149,6 +154,8 @@ export function ContactSection() {
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
               isSubmitting={isSubmitting}
+              error={error}
+              success={success}
             />
           </div>
 
@@ -185,6 +192,8 @@ interface ContactFormProps {
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
   handleSubmit: (e: React.FormEvent) => void
   isSubmitting: boolean
+  error: string | null
+  success: boolean
 }
 
 function ContactForm({
@@ -192,6 +201,8 @@ function ContactForm({
   handleInputChange,
   handleSubmit,
   isSubmitting,
+  error,
+  success,
 }: ContactFormProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -283,10 +294,15 @@ function ContactForm({
 
             <Button
               type='submit'
-              disabled={isSubmitting}
-              className='w-full rounded-xl bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 py-4 text-lg font-medium'
+              disabled={isSubmitting || success}
+              className='w-full rounded-xl bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 py-4 text-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none'
             >
-              {isSubmitting ? (
+              {success ? (
+                <>
+                  <CheckCircle className='h-5 w-5 mr-2' />
+                  Message Sent!
+                </>
+              ) : isSubmitting ? (
                 <>
                   <div className='animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2' />
                   Sending...
@@ -298,6 +314,22 @@ function ContactForm({
                 </>
               )}
             </Button>
+
+            {/* Success Message */}
+            {success && (
+              <div className='p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl'>
+                <p className='text-green-800 dark:text-green-200 text-sm font-medium'>
+                  ✅ Message sent successfully! I'll get back to you soon.
+                </p>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {error && (
+              <div className='p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl'>
+                <p className='text-red-800 dark:text-red-200 text-sm font-medium'>❌ {error}</p>
+              </div>
+            )}
           </form>
         </CardContent>
       </Card>

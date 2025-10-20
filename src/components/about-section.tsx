@@ -1,7 +1,7 @@
 'use client'
 
 import { HighlightCard } from './ui/highlight-card'
-import { Brain, Cloud, Code, Database, Palette, Zap } from 'lucide-react'
+import { Brain, Cloud, Zap } from 'lucide-react'
 
 export function AboutSection() {
   const highlights = [

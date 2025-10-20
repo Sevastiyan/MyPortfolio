@@ -1,9 +1,14 @@
+'use client'
+
 import { ExperienceCard } from './ui/experience-card'
 import { EducationCard } from './ui/education-card'
-import { GraduationCap, Briefcase, Sparkles } from 'lucide-react'
+import { GraduationCap, Briefcase, Sparkles, Download } from 'lucide-react'
 import Button from './ui/button'
+import { useDownloadCV } from '@/hooks/useDownloadCV'
 
 export function ExperienceSection() {
+  const { downloadCV, isLoading, error } = useDownloadCV()
+
   const experiences = [
     {
       title: 'Senior AI Engineer',
@@ -169,10 +174,26 @@ export function ExperienceSection() {
         </div>
         {/* Button to download Resume */}
         <div className='text-center mt-12'>
-          <Button variant='default' size='lg' className='flex items-center'>
-            <Sparkles className='h-5 w-5 mr-2' />
-            Download My Resume
+          <Button
+            variant='default'
+            size='lg'
+            className='flex items-center mx-auto'
+            onClick={downloadCV}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <>
+                <Sparkles className='h-5 w-5 mr-2 animate-spin' />
+                Downloading...
+              </>
+            ) : (
+              <>
+                <Download className='h-5 w-5 mr-2' />
+                Download My Resume
+              </>
+            )}
           </Button>
+          {error && <p className='text-red-500 text-sm mt-2'>{error}</p>}
         </div>
       </div>
     </section>
