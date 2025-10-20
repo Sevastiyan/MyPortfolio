@@ -56,7 +56,6 @@ export function ExperienceSection() {
       period: '2016 - 2018',
       description:
         'Conducted research on user interaction and experience with interactive systems. Developed a thesis on the impact of recommendation systems.',
-      achievements: ['Magna Cum Laude', 'AI Research Fellowship', "Dean's List"],
       coursework: ['Machine Learning', 'Deep Learning', 'Data Structures', 'Algorithms'],
     },
     {
@@ -66,11 +65,7 @@ export function ExperienceSection() {
       period: '2009 - 2014',
       description:
         'Focused on the intersection of technology and business. Developed a strong foundation in software development and project management.',
-      achievements: [
-        'Summa Cum Laude',
-        'ACM Programming Contest Winner',
-        'Outstanding Student Award',
-      ],
+
       coursework: [
         'Software Engineering',
         'Database Systems',

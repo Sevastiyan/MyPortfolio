@@ -12,6 +12,11 @@ export const useDownloadCV = () => {
       setIsLoading(true)
       setError(null)
 
+      // Check if Supabase is properly configured
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        throw new Error('Supabase configuration is missing. Please contact the site administrator.')
+      }
+
       // Get configuration from environment variables
       const bucketName = process.env.NEXT_PUBLIC_CV_BUCKET_NAME || 'documents'
       const filePath = process.env.NEXT_PUBLIC_CV_FILE_PATH || 'cv/resume.pdf'

@@ -13,7 +13,6 @@ interface Education {
   location: string
   period: string
   description: string
-  achievements: string[]
   coursework: string[]
 }
 

@@ -48,6 +48,13 @@ export const useContactForm = (): UseContactFormReturn => {
       setError(null)
       setSuccess(false)
 
+      // Check if Supabase is properly configured
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        throw new Error(
+          'Contact form is currently unavailable. Please try again later or contact me directly.'
+        )
+      }
+
       // Validate form data
       if (
         !formData.name.trim() ||

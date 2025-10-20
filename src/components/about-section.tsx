@@ -102,22 +102,6 @@ export function AboutSection() {
                 research-backed methods for production-ready systems at scale.
               </p>
             </div>
-
-            {/* Key stats or achievements */}
-            <div className='grid grid-cols-3 gap-6 pt-6'>
-              <div className='text-center'>
-                <div className='text-3xl font-bold text-primary mb-2'>6+</div>
-                <div className='text-sm text-muted-foreground'>Years Experience</div>
-              </div>
-              <div className='text-center'>
-                <div className='text-3xl font-bold text-accent mb-2'>5+</div>
-                <div className='text-sm text-muted-foreground'>Projects Delivered</div>
-              </div>
-              <div className='text-center'>
-                <div className='text-3xl font-bold text-accent mb-2'>7+</div>
-                <div className='text-sm text-muted-foreground'>AI Models in Production</div>
-              </div>
-            </div>
           </div>
 
           <div className='relative lg:order-2'>

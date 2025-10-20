@@ -15,7 +15,8 @@ import {
   Calendar,
   CheckCircle,
 } from 'lucide-react'
-import { SiGithub, SiLinkedin, SiX, SiGmail } from 'react-icons/si'
+import { SiGithub, SiLinkedin, SiX, SiGmail, SiWhatsapp } from 'react-icons/si'
+import { PiMicrosoftTeamsLogoFill } from 'react-icons/pi'
 import { useContactForm } from '@/hooks/useContactForm'
 
 export function ContactSection() {
@@ -95,6 +96,18 @@ export function ContactSection() {
       label: 'LinkedIn',
       href: 'https://www.linkedin.com/in/sevastiyan-tsvetkov/',
       color: 'hover:bg-blue-600 hover:text-white',
+    },
+    {
+      icon: SiWhatsapp,
+      label: 'WhatsApp',
+      href: 'https://wa.me/821037674724',
+      color: 'hover:bg-green-600 hover:text-white',
+    },
+    {
+      icon: PiMicrosoftTeamsLogoFill,
+      label: 'Microsoft Teams',
+      href: 'https://teams.microsoft.com/l/chat/0/0?users=sevastiyan.tsv@gmail.com',
+      color: 'hover:bg-[#4b53bc] hover:text-white',
     },
     {
       icon: SiX,
@@ -421,14 +434,14 @@ function SocialLinks({ socialLinks }: SocialLinksProps) {
         </CardHeader>
 
         <CardContent>
-          <div className='flex space-x-4'>
+          <div className='flex flex-wrap gap-4 justify-center sm:justify-start'>
             {socialLinks.map((social, index) => (
               <a
                 key={index}
                 href={social.href}
                 target='_blank'
                 rel='noopener noreferrer'
-                className={`p-4 rounded-xl glass border border-border/50 hover:border-primary/30 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 ${social.color} group`}
+                className={`p-4 rounded-xl glass border border-border/50 hover:border-primary/30 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 ${social.color} group flex-shrink-0`}
                 aria-label={social.label}
               >
                 <social.icon className='h-6 w-6 text-foreground group-hover:text-white transition-colors duration-300' />

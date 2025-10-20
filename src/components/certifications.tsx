@@ -172,28 +172,6 @@ const CertificationsSection: React.FC = () => {
             ))}
           </div>
         </div>
-
-        {/* Call to Action */}
-        <div className='text-center mt-20'>
-          <div className='glass rounded-2xl p-8 border border-primary/20'>
-            <h3 className='text-2xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent'>
-              Continuous Learning
-            </h3>
-            <p className='text-muted-foreground mb-6 max-w-2xl mx-auto'>
-              I'm committed to sitting on the edge of current industry trends and continuously
-              expanding my skill set through professional certifications and hands-on learning.
-            </p>
-            <Button
-              variant='outline'
-              size='lg'
-              scrollTo='contact'
-              scrollAnimation='smooth'
-              className='glass border-primary/30 hover:bg-primary/10'
-            >
-              Let's Discuss Your Project
-            </Button>
-          </div>
-        </div>
       </div>
 
       {/* Custom CSS for the animation */}
