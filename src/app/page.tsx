@@ -8,7 +8,7 @@ import { ProjectsSection } from '@/components/projects-section'
 import { BlogPreviewSection } from '@/components/blog-preview-section'
 import CertificationsSection from '@/components/certifications'
 import { SkillsSection } from '@/components/skills-section'
-import { ExperienceSection } from '@/components/experience-section'
+import { InteractiveTimeline } from '@/components/interactive-timeline'
 import { ContactSection } from '@/components/contact-section'
 import { Navigation } from '@/components/navigation'
 import Button from '@/components/ui/button'
@@ -51,7 +51,7 @@ export default function Portfolio() {
         {/* <BlogPreviewSection /> */}
         <SkillsSection />
         <CertificationsSection />
-        <ExperienceSection />
+        <InteractiveTimeline />
         <ContactSection />
       </div>
     </main>

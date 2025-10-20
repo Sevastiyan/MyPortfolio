@@ -44,12 +44,6 @@ export function AboutSection() {
 
       <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='text-center mb-20'>
-          <div className='inline-block mb-6'>
-            <span className='inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20'>
-              👋 Get to know me
-            </span>
-          </div>
-
           <h2 className='text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance'>
             About{' '}
             <span className='bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent'>
@@ -68,38 +62,39 @@ export function AboutSection() {
           <div className='space-y-8 lg:order-1'>
             <div className='space-y-6'>
               <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                I build systems that bridge research and reality. At FlexoSense, I engineered a gait
-                analysis pipeline that brought lab-grade biomechanics to consumer IoT insoles,
-                showing that precision once locked in $100k labs can be accessible through
+                I build systems that bridge research and reality. At FlexoSense, I developed a gait
+                analysis pipeline that translated lab-grade biomechanics into consumer IoT insoles —
+                proving that precision once confined to $100k labs can be achieved through
                 thoughtful engineering.
               </p>
 
               <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                Since then, I’ve carried the same principle into new domains. At Wethm, I scaled
-                biosignal analytics into a sleep-monitoring product, integrating real-time
-                processing and subscription infrastructure to move it from prototype to market. At
-                Neurabody, I’ve led two flagship initiatives:
+                Since then, I’ve applied the same approach across new domains. At Wethm, I turned
+                biosignal analytics into a commercial sleep-monitoring product — integrating
+                real-time processing and scalable backend infrastructure. At Neurabody, I’ve led two
+                core initiatives:
               </p>
 
               <dl className='space-y-4'>
                 <div>
                   <dt className='text-sm font-semibold text-primary'>Posture detection</dt>
                   <dd className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                    A low-latency posture stack running on Samsung Smart TVs
+                    A low-latency posture stack built for Samsung Smart TVs.
                   </dd>
                 </div>
 
                 <div>
                   <dt className='text-sm font-semibold text-accent'>Ergonomic seat</dt>
                   <dd className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                    Backend for a smart seat that gained strong market traction and investment
+                    Backend for a smart seat that gained strong market traction and investor
+                    support.
                   </dd>
                 </div>
               </dl>
 
               <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                Across it all, my focus stays the same — extracting clear data and turning it into
-                research-backed methods for production-ready systems at scale.
+                Across all projects, my goal remains the same — extracting clear, reliable data and
+                turning it into research-backed, production-ready systems.
               </p>
             </div>
           </div>

@@ -180,12 +180,6 @@ export function ProjectsSection() {
 
       <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='text-center mb-20'>
-          <div className='inline-block mb-6'>
-            <span className='inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20'>
-              🚀 My Work
-            </span>
-          </div>
-
           <h2 className='text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance'>
             Featured{' '}
             <span className='bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent'>
