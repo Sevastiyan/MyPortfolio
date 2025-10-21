@@ -1,10 +1,9 @@
 'use client'
 
-import React from 'react'
-import { Award, ExternalLink } from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import { Award, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Badge } from './ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
-import Button from './ui/button'
 
 export interface Certification {
   title: string
@@ -69,10 +68,77 @@ const certifications: Certification[] = [
   },
 ]
 
-// Duplicate the certifications array for infinite scroll effect
-const infiniteCertifications = [...certifications, ...certifications]
-
 const CertificationsSection: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [direction, setDirection] = useState<'left' | 'right'>('right')
+
+  // Touch/swipe state
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50
+
+  // Auto-rotate through certifications
+  useEffect(() => {
+    if (!isAutoPlaying) return
+
+    const interval = setInterval(() => {
+      setDirection('right')
+      setCurrentIndex((prev) => (prev + 1) % certifications.length)
+    }, 5000) // Slower for better UX
+
+    return () => clearInterval(interval)
+  }, [isAutoPlaying])
+
+  const goToNext = () => {
+    setDirection('right')
+    setCurrentIndex((prev) => (prev + 1) % certifications.length)
+    setIsAutoPlaying(false)
+  }
+
+  const goToPrevious = () => {
+    setDirection('left')
+    setCurrentIndex((prev) => (prev - 1 + certifications.length) % certifications.length)
+    setIsAutoPlaying(false)
+  }
+
+  const goToIndex = (index: number) => {
+    const currentIdx = currentIndex
+    setDirection(index > currentIdx ? 'right' : 'left')
+    setCurrentIndex(index)
+    setIsAutoPlaying(false)
+  }
+
+  // Touch handlers for swipe functionality
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null) // Reset touchEnd
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe) {
+      setDirection('right')
+      goToNext()
+    } else if (isRightSwipe) {
+      setDirection('left')
+      goToPrevious()
+    }
+  }
+
+  const currentCert = certifications[currentIndex]
+
   return (
     <section id='certifications' className='pb-32 relative overflow-hidden'>
       {/* Background Effects */}
@@ -103,117 +169,146 @@ const CertificationsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Infinite Scroll Carousel */}
-        <div className='relative max-w-6xl mx-auto overflow-hidden'>
-          {/* Fade overlays */}
-          <div className='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none' />
-          <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none' />
+        {/* Simple Spotlight Carousel - Mobile Optimized */}
+        <div className='relative max-w-4xl mx-auto'>
+          {/* Navigation Buttons - Hidden on mobile, use swipe + dots instead */}
+          <button
+            onClick={goToPrevious}
+            className='hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass border border-primary/10 hover:bg-primary/5 transition-all duration-300 group'
+            aria-label='Previous certification'
+          >
+            <ChevronLeft className='h-5 w-5 text-primary group-hover:scale-110 transition-transform' />
+          </button>
 
-          {/* Scrolling track */}
-          <div className='flex animate-scroll hover:animation-paused'>
-            {infiniteCertifications.map((cert, index) => (
-              <div key={`${cert.title}-${index}`} className='flex-shrink-0 w-80 mr-6'>
-                <Card className='group h-full mb-1 glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl'>
-                  {/* Background gradient on hover */}
-                  <div className='absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+          <button
+            onClick={goToNext}
+            className='hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass border border-primary/10 hover:bg-primary/5 transition-all duration-300 group'
+            aria-label='Next certification'
+          >
+            <ChevronRight className='h-5 w-5 text-primary group-hover:scale-110 transition-transform' />
+          </button>
 
-                  <CardHeader className='relative pb-4'>
-                    <div className='flex items-center justify-between mb-4'>
-                      <div className='flex items-center gap-2 text-sm text-muted-foreground'>
-                        <span className='font-medium text-primary'>{cert.issuer}</span>
-                        <span>•</span>
-                        <span>{cert.date}</span>
-                      </div>
+          {/* Single Card Display */}
+          <div className='px-4 md:px-16'>
+            <div
+              className='transition-all duration-500 ease-in-out transform'
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+              key={currentIndex} // Force re-render for animation
+            >
+              <Card
+                className={`w-full max-w-2xl mx-auto min-h-[320px] md:min-h-[280px] glass border-primary/10 shadow-2xl transition-shadow duration-500 select-none animate-in fade-in duration-500 ${
+                  direction === 'right' ? 'slide-in-from-right-5' : 'slide-in-from-left-5'
+                }`}
+              >
+                {/* Spotlight glow effect - Matching highlight card subtlety */}
+                <div className='absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+                <div className='absolute -inset-1 bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl blur-sm -z-10' />
 
-                      {cert.url && (
-                        <a
-                          href={cert.url}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className='p-2 rounded-lg hover:bg-primary/10 transition-colors group/link'
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <ExternalLink className='h-4 w-4 text-muted-foreground group-hover/link:text-primary' />
-                        </a>
-                      )}
+                <CardHeader className='relative pb-3 md:pb-4'>
+                  <div className='flex items-center justify-between mb-3 md:mb-4'>
+                    <div className='flex items-center gap-2 text-xs md:text-sm text-muted-foreground'>
+                      <span className='font-medium text-primary'>{currentCert.issuer}</span>
+                      <span>•</span>
+                      <span>{currentCert.date}</span>
                     </div>
 
-                    <CardTitle className='text-lg leading-tight group-hover:text-primary transition-colors duration-300'>
-                      {cert.title}
-                    </CardTitle>
-                  </CardHeader>
-
-                  {/* Only show content on md+ screens */}
-                  <CardContent className='hidden md:block relative space-y-4'>
-                    {/* Description */}
-                    {cert.description && (
-                      <p className='text-sm text-muted-foreground leading-relaxed line-clamp-3 group-hover:text-foreground/80 transition-colors duration-300'>
-                        {cert.description}
-                      </p>
+                    {currentCert.url && (
+                      <a
+                        href={currentCert.url}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='p-1.5 md:p-2 rounded-lg hover:bg-primary/5 transition-colors group/link'
+                      >
+                        <ExternalLink className='h-3.5 w-3.5 md:h-4 md:w-4 text-muted-foreground group-hover/link:text-primary transition-colors duration-300' />
+                      </a>
                     )}
+                  </div>
 
-                    {/* Topics */}
-                    {cert.topics && cert.topics.length > 0 && (
-                      <div className='flex flex-wrap gap-2 '>
-                        {cert.topics.map((topic) => (
+                  <CardTitle className='text-lg md:text-xl lg:text-2xl text-primary leading-tight line-clamp-2'>
+                    {currentCert.title}
+                  </CardTitle>
+                </CardHeader>
+
+                <CardContent className='relative space-y-4 md:space-y-6 pb-12 md:pb-16 flex flex-col justify-between min-h-[180px] md:min-h-[140px]'>
+                  {/* Description - Consistent height with line clamping */}
+                  {currentCert.description && (
+                    <p className='text-sm md:text-base text-muted-foreground leading-relaxed'>
+                      <span className='md:hidden line-clamp-3'>{currentCert.description}</span>
+                      <span className='hidden md:block line-clamp-2'>
+                        {currentCert.description}
+                      </span>
+                    </p>
+                  )}
+
+                  {/* Topics - Consistent layout */}
+                  {currentCert.topics && currentCert.topics.length > 0 && (
+                    <div className='flex flex-wrap gap-1.5 md:gap-2 min-h-[24px] md:min-h-[28px] items-start'>
+                      {/* Mobile: Show max 4 topics */}
+                      <div className='md:hidden flex flex-wrap gap-1.5'>
+                        {currentCert.topics.slice(0, 4).map((topic) => (
                           <Badge
                             key={topic}
                             variant='secondary'
-                            className='bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors duration-300'
+                            className='bg-primary/5 text-primary border-primary/10 text-xs px-2 py-0.5'
+                          >
+                            {topic}
+                          </Badge>
+                        ))}
+                        {currentCert.topics.length > 4 && (
+                          <Badge
+                            variant='secondary'
+                            className='bg-muted/50 text-muted-foreground text-xs px-2 py-0.5'
+                          >
+                            +{currentCert.topics.length - 4}
+                          </Badge>
+                        )}
+                      </div>
+
+                      {/* Desktop: Show all topics */}
+                      <div className='hidden md:flex flex-wrap gap-2'>
+                        {currentCert.topics.map((topic) => (
+                          <Badge
+                            key={topic}
+                            variant='secondary'
+                            className='bg-primary/5 text-primary border-primary/10 hover:bg-primary/10 transition-colors duration-300'
                           >
                             {topic}
                           </Badge>
                         ))}
                       </div>
-                    )}
-                  </CardContent>
-                </Card>
-              </div>
+                    </div>
+                  )}
+
+                  {/* Credential indicator */}
+                  <div className='absolute bottom-3 right-3 md:bottom-4 md:right-4'>
+                    <div className='w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg'>
+                      <Award className='h-3 w-3 md:h-4 md:w-4 text-white' />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Dots Indicator - Larger on mobile for better touch */}
+          <div className='flex justify-center mt-6 md:mt-8 gap-2 md:gap-2'>
+            {certifications.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToIndex(index)}
+                className={`w-2.5 h-2.5 md:w-2 md:h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'bg-primary scale-125 shadow-lg shadow-primary/50'
+                    : 'bg-muted-foreground/30 hover:bg-primary/50'
+                }`}
+                aria-label={`Go to certification ${index + 1}`}
+              />
             ))}
           </div>
         </div>
       </div>
-
-      {/* Custom CSS for the animation */}
-      <style jsx>{`
-        .animate-scroll {
-          animation: scroll 20s linear infinite;
-          width: calc(345px * 12);
-        }
-
-        .animate-scroll:hover {
-          animation-play-state: paused;
-        }
-
-        .animation-paused {
-          animation-play-state: paused;
-        }
-
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-345px * 6));
-          }
-        }
-
-        @media (max-width: 768px) {
-          .animate-scroll {
-            animation: scroll-mobile 25s linear infinite;
-            width: calc(280px * 6);
-          }
-
-          @keyframes scroll-mobile {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(calc(-280px * 6));
-            }
-          }
-        }
-      `}</style>
     </section>
   )
 }

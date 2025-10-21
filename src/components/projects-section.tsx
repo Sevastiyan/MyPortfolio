@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { Badge } from './ui/badge'
 import { Button } from './ui/button'
-import { ExternalLink, Github, Calendar, Users, MapPin } from 'lucide-react'
+import { ExternalLink, Github, MapPin } from 'lucide-react'
 import {
   SiReact,
   SiNextdotjs,
