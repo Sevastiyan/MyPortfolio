@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import { useTheme } from 'next-themes'
-import { Moon, Sun, Laptop } from 'lucide-react'
+import { Moon, Sun } from 'lucide-react'
 import { Button } from './ui/button'
 
 export function ThemeToggle() {
@@ -37,10 +37,8 @@ export function ThemeToggle() {
         return <Sun className='h-[1.2rem] w-[1.2rem] text-amber-500' />
       case 'dark':
         return <Moon className='h-[1.2rem] w-[1.2rem] text-blue-400' />
-      case 'system':
-        return <Laptop className='h-[1.2rem] w-[1.2rem] text-muted-foreground' />
       default:
-        return <Sun className='h-[1.2rem] w-[1.2rem]' />
+        return <Sun className='h-[1.2rem] w-[1.2rem] text-amber-500' />
     }
   }
 
@@ -51,7 +49,7 @@ export function ThemeToggle() {
       case 'dark':
         return 'Switch to light mode'
       default:
-        return 'Toggle theme'
+        return 'Switch to dark mode'
     }
   }
 
@@ -89,7 +87,6 @@ export function ThemeToggleExpanded() {
   const themes = [
     { value: 'light', icon: Sun, label: 'Light', color: 'text-amber-500' },
     { value: 'dark', icon: Moon, label: 'Dark', color: 'text-blue-400' },
-    { value: 'system', icon: Laptop, label: 'System', color: 'text-muted-foreground' },
   ]
 
   return (
