@@ -1,24 +1,24 @@
 'use client'
 
 import { HighlightCard } from './ui/highlight-card'
-import { Brain, Cloud, Zap } from 'lucide-react'
+import { Bot, CloudCheck, ChartSpline } from 'lucide-react'
 
 export function AboutSection() {
   const highlights = [
     {
-      icon: Brain,
+      icon: Bot,
       title: 'AI & Machine Learning',
       description:
         'End-to-end development of production ready AI systems for real-time analytics and biomedical signal processing.',
     },
     {
-      icon: Cloud,
+      icon: CloudCheck,
       title: 'Scalable Cloud Systems',
       description:
         'Engineering secure, low-latency architectures with AWS while building robust backend services that grow.',
     },
     {
-      icon: Zap,
+      icon: ChartSpline,
       title: 'Data & Algorithms',
       description:
         'Designing backend solutions for IoT and wearable devices, that apply analytics to extract meaningful insights with accuracy.',
@@ -128,7 +128,7 @@ export function AboutSection() {
               What I Bring to the Table
             </h3>
             <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-              Core strengths shaping how I design and deliver technology
+              Core philosophies shaping how I design and deliver technology
             </p>
           </div>
 

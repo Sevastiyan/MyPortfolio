@@ -47,7 +47,7 @@ export function Navigation() {
     { id: 'about', label: 'About', type: 'scroll' },
     { id: 'projects', label: 'Projects', type: 'scroll' },
     { id: 'skills', label: 'Skills', type: 'scroll' },
-    { id: 'experience', label: 'Experience', type: 'scroll' },
+    { id: 'timeline', label: 'Experience', type: 'scroll' },
     // { id: 'blog', label: 'Blog', type: 'link', href: '/blog' },
     { id: 'contact', label: 'Contact', type: 'scroll' },
   ]

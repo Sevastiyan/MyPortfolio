@@ -12,9 +12,9 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'light',
+  defaultTheme = 'system',
   enableSystem = true,
-  disableTransitionOnChange = true,
+  disableTransitionOnChange = false,
   ...props
 }: ThemeProviderProps) {
   return (
