@@ -52,9 +52,9 @@ export function AboutSection() {
           </h2>
 
           <p className='text-xl sm:text-2xl text-muted-foreground max-w-xl mx-auto text-pretty leading-relaxed'>
-            Turning <span className='text-primary font-medium'>Research</span> into Production-Ready
-            AI {'\n'} From Lab Precision to{' '}
-            <span className='text-accent font-medium'>Scalable Products</span>
+            Turning complex <span className='text-primary font-medium'>Ideas</span> into solutions{' '}
+            {'\n'} from lab precision to scalable{' '}
+            <span className='text-accent font-medium'>products</span>
           </p>
         </div>
 
@@ -62,39 +62,27 @@ export function AboutSection() {
           <div className='space-y-8 lg:order-1'>
             <div className='space-y-6'>
               <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                I build systems that bridge research and reality. At FlexoSense, I developed a gait
-                analysis pipeline that translated lab-grade biomechanics into consumer IoT insoles —
-                proving that precision once confined to $100k labs can be achieved through
-                thoughtful engineering.
+                I work at the intersection of research and practical engineering, where complex
+                ideas become tangible solutions.
+              </p>
+              <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
+                The challenge isn't just understanding AI, computer vision, or distributed systems.
+                It's figuring out which parts actually matter, then building something that works.
               </p>
 
               <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                Since then, I’ve applied the same approach across new domains. At Wethm, I turned
-                biosignal analytics into a commercial sleep-monitoring product — integrating
-                real-time processing and scalable backend infrastructure. At Neurabody, I’ve led two
-                core initiatives:
+                Critical thinking drives everything. The skill is asking the right questions: What's
+                the actual constraint? What's the simplest approach? Where will this break?
               </p>
 
-              <dl className='space-y-4'>
-                <div>
-                  <dt className='text-sm font-semibold text-primary'>Posture detection</dt>
-                  <dd className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                    A low-latency posture stack built for Samsung Smart TVs.
-                  </dd>
-                </div>
-
-                <div>
-                  <dt className='text-sm font-semibold text-accent'>Ergonomic seat</dt>
-                  <dd className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                    Backend for a smart seat that gained strong market traction and investor
-                    support.
-                  </dd>
-                </div>
-              </dl>
+              <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
+                I've worked across biomedical applications where both technical depth and pragmatic
+                practical execution matter.
+              </p>
 
               <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                Across all projects, my goal remains the same — extracting clear, reliable data and
-                turning it into research-backed, production-ready systems.
+                The goal is straightforward! Take complex research and turn it into something
+                useful.
               </p>
             </div>
           </div>
