@@ -7,94 +7,17 @@ import { Badge } from './ui/badge'
 import { Button } from './ui/button'
 import { Calendar, Clock, ArrowRight, Search, Filter } from 'lucide-react'
 import Link from 'next/link'
+import { blogPosts, type BlogPost } from '@/data/blog-data'
 
 export function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [searchTerm, setSearchTerm] = useState('')
 
-  const blogPosts = [
-    {
-      title: 'Building Scalable React Applications: Lessons from Production',
-      excerpt:
-        "Discover the architectural patterns and best practices I've learned while building React applications that serve thousands of users. From component architecture to state management, here's what works in the real world.",
-      date: '2024-09-10',
-      readTime: '8 min read',
-      category: 'React',
-      slug: 'building-scalable-react-applications',
-      featured: true,
-      tags: ['React', 'Architecture', 'Best Practices', 'Performance'],
-    },
-    {
-      title: 'The Journey from Junior to Senior Developer',
-      excerpt:
-        'Reflecting on my growth as a developer and the key milestones that shaped my career in software development. What I wish I knew when I started coding.',
-      date: '2024-09-05',
-      readTime: '6 min read',
-      category: 'Career',
-      slug: 'junior-to-senior-developer-journey',
-      featured: true,
-      tags: ['Career', 'Growth', 'Learning', 'Mentorship'],
-    },
-    {
-      title: 'Modern CSS Techniques Every Developer Should Know',
-      excerpt:
-        'Exploring CSS Grid, Flexbox, and modern layout techniques that have revolutionized web design and development. Practical examples included.',
-      date: '2024-08-28',
-      readTime: '10 min read',
-      category: 'CSS',
-      slug: 'modern-css-techniques',
-      featured: true,
-      tags: ['CSS', 'Web Design', 'Layout', 'Modern Web'],
-    },
-    {
-      title: 'Understanding TypeScript: From Beginner to Advanced',
-      excerpt:
-        'A comprehensive guide to TypeScript that covers everything from basic types to advanced features like conditional types and mapped types.',
-      date: '2024-08-20',
-      readTime: '12 min read',
-      category: 'TypeScript',
-      slug: 'understanding-typescript-guide',
-      featured: false,
-      tags: ['TypeScript', 'JavaScript', 'Type Safety', 'Development'],
-    },
-    {
-      title: 'Optimizing Web Performance: A Complete Guide',
-      excerpt:
-        'Learn how to make your web applications lightning fast. Core Web Vitals, lazy loading, code splitting, and more performance optimization techniques.',
-      date: '2024-08-15',
-      readTime: '15 min read',
-      category: 'Performance',
-      slug: 'optimizing-web-performance-guide',
-      featured: false,
-      tags: ['Performance', 'Optimization', 'Core Web Vitals', 'Speed'],
-    },
-    {
-      title: 'Building RESTful APIs with Node.js and Express',
-      excerpt:
-        'Step-by-step guide to creating robust, scalable APIs. Authentication, validation, error handling, and best practices for production-ready backends.',
-      date: '2024-08-10',
-      readTime: '11 min read',
-      category: 'Backend',
-      slug: 'building-restful-apis-nodejs',
-      featured: false,
-      tags: ['Node.js', 'Express', 'API', 'Backend', 'REST'],
-    },
-    {
-      title: 'State Management in React: Redux vs Context vs Zustand',
-      excerpt:
-        'Comparing popular state management solutions for React applications. When to use each one and practical implementation examples.',
-      date: '2024-08-05',
-      readTime: '9 min read',
-      category: 'React',
-      slug: 'react-state-management-comparison',
-      featured: false,
-      tags: ['React', 'State Management', 'Redux', 'Context', 'Zustand'],
-    },
-  ]
+  const allPosts = blogPosts
 
-  const categories = ['All', ...Array.from(new Set(blogPosts.map((post) => post.category)))]
+  const categories = ['All', ...Array.from(new Set(allPosts.map((post) => post.category)))]
 
-  const filteredPosts = blogPosts.filter((post) => {
+  const filteredPosts = allPosts.filter((post) => {
     const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory
     const matchesSearch =
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -129,15 +52,17 @@ export function BlogPage() {
           </div>
 
           <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance'>
-            Development{' '}
+            Technical{' '}
             <span className='bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent'>
-              Journey
+              Blog
             </span>
           </h1>
 
           <p className='text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed'>
-            Thoughts, tutorials, and insights from my{' '}
-            <span className='text-primary font-medium'>software development journey</span>
+            Deep dives into{' '}
+            <span className='text-primary font-medium'>
+              AI, IoT, and scalable system architecture
+            </span>
           </p>
         </div>
 
@@ -178,7 +103,7 @@ export function BlogPage() {
             <h2 className='text-3xl font-bold text-center mb-12 text-foreground'>Featured Posts</h2>
             <div className='grid lg:grid-cols-3 gap-8'>
               {featuredPosts.map((post, index) => (
-                <FeaturedBlogCard key={index} post={post} index={index} />
+                <FeaturedBlogCard key={post.slug} post={post} index={index} />
               ))}
             </div>
           </div>
@@ -202,7 +127,7 @@ export function BlogPage() {
           ) : (
             <div className='grid md:grid-cols-2 gap-8'>
               {(selectedCategory === 'All' ? regularPosts : filteredPosts).map((post, index) => (
-                <BlogPostCard key={index} post={post} index={index} />
+                <BlogPostCard key={post.slug} post={post} index={index} />
               ))}
             </div>
           )}
@@ -213,8 +138,8 @@ export function BlogPage() {
           <div className='glass rounded-3xl p-12 border border-primary/20 text-center'>
             <h3 className='text-3xl font-bold mb-4 text-foreground'>Stay Updated</h3>
             <p className='text-xl text-muted-foreground mb-8 max-w-2xl mx-auto'>
-              Get notified when I publish new articles about web development, career insights, and
-              tech tutorials.
+              Get notified when I publish new technical articles on AI, IoT, and system
+              architecture.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 max-w-md mx-auto'>
               <input
@@ -234,16 +159,7 @@ export function BlogPage() {
 }
 
 interface BlogPostCardProps {
-  post: {
-    title: string
-    excerpt: string
-    date: string
-    readTime: string
-    category: string
-    slug: string
-    featured?: boolean
-    tags: string[]
-  }
+  post: BlogPost
   index: number
 }
 
@@ -269,7 +185,7 @@ function BlogPostCard({ post, index }: BlogPostCardProps) {
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
-      <Link href={`/blog/${post.slug}`}>
+      <Link href={post.status === 'published' ? `/blog/${post.slug}` : '#'}>
         <Card className='group h-full glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl cursor-pointer'>
           <div className='absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
 
@@ -281,11 +197,18 @@ function BlogPostCard({ post, index }: BlogPostCardProps) {
               >
                 {post.category}
               </Badge>
-              {post.featured && (
-                <Badge className='bg-gradient-to-r from-accent to-secondary text-white'>
-                  Featured
-                </Badge>
-              )}
+              <div className='flex gap-2'>
+                {post.featured && (
+                  <Badge className='bg-gradient-to-r from-accent to-secondary text-white'>
+                    Featured
+                  </Badge>
+                )}
+                {post.status === 'coming-soon' && (
+                  <Badge variant='outline' className='border-accent/50 text-accent'>
+                    Coming Soon
+                  </Badge>
+                )}
+              </div>
             </div>
 
             <CardTitle className='text-xl leading-tight group-hover:text-primary transition-colors duration-300'>
@@ -329,7 +252,7 @@ function BlogPostCard({ post, index }: BlogPostCardProps) {
             </div>
 
             <div className='flex items-center text-primary font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-2 pt-2'>
-              Read More
+              {post.status === 'published' ? 'Read More' : 'Coming Soon'}
               <ArrowRight className='h-4 w-4 ml-1' />
             </div>
           </CardContent>
@@ -361,7 +284,7 @@ function FeaturedBlogCard({ post, index }: BlogPostCardProps) {
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
-      <Link href={`/blog/${post.slug}`}>
+      <Link href={post.status === 'published' ? `/blog/${post.slug}` : '#'}>
         <Card className='group glass border-primary/30 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl cursor-pointer overflow-hidden'>
           {/* Featured badge */}
           <div className='absolute top-4 left-4 z-10'>
@@ -376,10 +299,18 @@ function FeaturedBlogCard({ post, index }: BlogPostCardProps) {
               <div className='text-6xl opacity-20'>📝</div>
             </div>
 
-            <div className='absolute top-4 right-4'>
+            <div className='absolute top-4 right-4 flex gap-2'>
               <Badge variant='secondary' className='bg-white/90 text-foreground backdrop-blur-sm'>
                 {post.category}
               </Badge>
+              {post.status === 'coming-soon' && (
+                <Badge
+                  variant='outline'
+                  className='bg-white/90 border-accent/50 text-accent backdrop-blur-sm'
+                >
+                  Coming Soon
+                </Badge>
+              )}
             </div>
           </div>
 
@@ -408,7 +339,7 @@ function FeaturedBlogCard({ post, index }: BlogPostCardProps) {
             </div>
 
             <div className='flex items-center text-primary font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-2 pt-2'>
-              Read Article
+              {post.status === 'published' ? 'Read Article' : 'Coming Soon'}
               <ArrowRight className='h-4 w-4 ml-1' />
             </div>
           </CardContent>
