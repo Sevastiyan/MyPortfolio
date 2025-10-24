@@ -22,7 +22,7 @@ const certifications: Certification[] = [
     date: 'Sep 2022',
     url: 'https://studies.cs.helsinki.fi/stats/api/certificate/fullstackopen/en/7451be4ec49c3f6bac8f9ad54f857dbf',
     topics: ['Node.js', 'MongoDB', 'TypeScript', 'React', 'Redux', 'GraphQL'],
-    description: 'Demonstrates proficiency in modern web development practices and technologies.',
+    description: 'Proficiency in modern web development practices and technologies.',
   },
   {
     title: 'Advanced Computer Vision with Deep Learning',
@@ -31,7 +31,7 @@ const certifications: Certification[] = [
     url: 'https://1drv.ms/b/s!AtOqisQJgfEQpBO3jlFZMOkdoaS4?e=N2I0K7',
     topics: ['TensorFlow', 'PyTorch', 'Computer Vision'],
     description:
-      'Professional certification demonstrating understanding of advanced computer vision techniques and deep learning methodologies.',
+      'Professional certification for understanding of advanced computer vision techniques and deep learning methodologies.',
   },
   {
     title: 'Advanced Java Programming',
@@ -39,7 +39,7 @@ const certifications: Certification[] = [
     date: 'Feb 2021',
     url: 'https://certificates.mooc.fi/validate/u1tyzjks4g',
     topics: ['Java', 'Object-Oriented Programming', 'Data Structures', 'Algorithms'],
-    description: 'Validates skills in advanced Java programming concepts and techniques.',
+    description: 'Advanced Java & OOP programming concepts and techniques.',
   },
   {
     title: 'Big Data Platforms',
@@ -47,8 +47,7 @@ const certifications: Certification[] = [
     date: 'Nov 2021',
     url: 'https://certificates.mooc.fi/validate/vqbat9d9ru',
     topics: ['SQL', 'Machine Learning', 'Apache Spark', 'Hadoop', 'Data Engineering'],
-    description:
-      'Demonstrates proficiency in big data technologies and data engineering practices.',
+    description: 'Proficiency in big data technologies and data engineering practices.',
   },
   {
     title: 'Deep Learning Foundations',
@@ -56,8 +55,7 @@ const certifications: Certification[] = [
     date: 'Mar 2021',
     url: 'https://1drv.ms/b/s!AtOqisQJgfEQpAuLWbeP-M8sTyb3?e=iarTRB',
     topics: ['TensorFlow', 'Keras', 'Machine Learning', 'Deep Learning'],
-    description:
-      'Certification for developing cloud solutions using Microsoft Azure services and development tools.',
+    description: 'Certification for developing deep learning models using TensorFlow and Keras.',
   },
   {
     title: 'Principles of Information Security Controls',

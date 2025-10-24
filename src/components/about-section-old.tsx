@@ -52,9 +52,9 @@ export function AboutSection() {
           </h2>
 
           <p className='text-xl sm:text-2xl text-muted-foreground max-w-xl mx-auto text-pretty leading-relaxed'>
-            Turning complex <span className='text-primary font-medium'>Ideas</span> into solutions{' '}
-            {'\n'} from lab precision to scalable{' '}
-            <span className='text-accent font-medium'>products</span>
+            Turning <span className='text-primary font-medium'>Research</span> into Production-Ready
+            AI {'\n'} From Lab Precision to{' '}
+            <span className='text-accent font-medium'>Scalable Products</span>
           </p>
         </div>
 
@@ -62,27 +62,29 @@ export function AboutSection() {
           <div className='space-y-8 lg:order-1'>
             <div className='space-y-6'>
               <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                I work at the intersection of research and practical engineering, where complex
-                ideas become tangible solutions.
+                Ever since I started working with technology, I’ve been drawn to how advanced ideas
+                can actually work in real life.
               </p>
               <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                The challenge isn't just understanding AI, computer vision, or distributed systems.
-                It's figuring out which parts actually matter, then building something that works.
-              </p>
-
-              <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                Critical thinking drives everything. The skill is asking the right questions: What's
-                the actual constraint? What's the simplest approach? Where will this break?
+                At FlexoSense, I analyzed data from IoT insoles designed to help prevent foot ulcers
+                in diabetes patients. That experience taught me to stay precise — to pay attention
+                to every small detail that makes data meaningful.
               </p>
 
               <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                I've worked across biomedical applications where both technical depth and pragmatic
-                practical execution matter.
+                At Wethm, I carried that mindset into a bigger system: building the full backend for
+                an AI-powered sleep analysis platform, from the ground up.
               </p>
 
               <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
-                The goal is straightforward! Take complex research and turn it into something
-                useful.
+                Now at Neurabody, I’m scaling those ideas even further — leading development for
+                posture detection and smart ergonomic systems that combine computer vision, embedded
+                sensing, and real-time analytics.
+              </p>
+
+              <p className='text-md md:text-lg text-muted-foreground leading-relaxed'>
+                Across it all, my focus stays the same: build technology that’s rigorous, reliable,
+                and genuinely useful.
               </p>
             </div>
           </div>

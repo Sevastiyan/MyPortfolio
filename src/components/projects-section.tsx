@@ -112,10 +112,7 @@ export function ProjectsSection() {
         users: '5K+',
         uptime: '99.8%',
       }),
-      links: {
-        demo: 'https://demo.example.com',
-        github: 'https://github.com/username/project',
-      },
+      links: {},
       featured: false,
     },
     {
@@ -133,10 +130,7 @@ export function ProjectsSection() {
         users: '1K+',
         satisfaction: '4.8/5',
       }),
-      links: {
-        demo: 'https://demo.example.com',
-        github: 'https://github.com/username/project',
-      },
+      links: {},
       featured: false,
     },
   ]
@@ -274,8 +268,8 @@ interface ProjectCardProps {
     location: string
     metrics: Record<string, string>
     links: {
-      demo: string
-      github: string
+      demo?: string
+      github?: string
     }
     featured?: boolean
   }
@@ -344,25 +338,34 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
           {/* 5. Links */}
           <div className='flex space-x-3'>
-            <Button
-              variant='outline'
-              size='sm'
-              externalLink={project.links.demo}
-              className='flex-1 rounded-full glass border-primary/30 hover:bg-primary/10'
-            >
-              <div className='flex items-center gap-2'>
-                <ExternalLink className='h-4 w-4 mr-2' />
-                View
-              </div>
-            </Button>
-            <Button
-              variant='outline'
-              size='sm'
-              className='flex-1 rounded-full glass border-primary/30 hover:bg-primary/10'
-            >
-              <Github className='h-4 w-4 mr-2' />
-              Code
-            </Button>
+            {project.links.demo && (
+              <Button
+                variant='outline'
+                size='sm'
+                externalLink={project.links.demo}
+                className={`${
+                  project.links.github ? 'flex-1' : 'w-full'
+                } rounded-full glass border-primary/30 hover:bg-primary/10`}
+              >
+                <div className='flex items-center gap-2'>
+                  <ExternalLink className='h-4 w-4 mr-2' />
+                  View
+                </div>
+              </Button>
+            )}
+            {project.links.github && (
+              <Button
+                variant='outline'
+                size='sm'
+                externalLink={project.links.github}
+                className={`${
+                  project.links.demo ? 'flex-1' : 'w-full'
+                } rounded-full glass border-primary/30 hover:bg-primary/10`}
+              >
+                <Github className='h-4 w-4 mr-2' />
+                Code
+              </Button>
+            )}
           </div>
         </CardContent>
       </Card>
@@ -463,20 +466,25 @@ function FeaturedProjectCard({ project, index }: ProjectCardProps) {
 
           {/* Action buttons */}
           <div className='flex space-x-4 pt-2'>
-            <Button
-              externalLink={project.links.demo}
-              className='flex-1 rounded-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300'
-            >
-              <div className='flex items-center gap-2'>
-                View Project <ExternalLink className='h-4 w-4 mr-2' />
-              </div>
-            </Button>
-            <Button
-              variant='outline'
-              className='rounded-full glass border-primary/30 hover:bg-primary/10 px-6'
-            >
-              <Github className='h-4 w-4' />
-            </Button>
+            {project.links.demo && (
+              <Button
+                externalLink={project.links.demo}
+                className='flex-1 rounded-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg hover:shadow-xl transition-all duration-300'
+              >
+                <div className='flex items-center gap-2'>
+                  View Project <ExternalLink className='h-4 w-4 mr-2' />
+                </div>
+              </Button>
+            )}
+            {project.links.github && (
+              <Button
+                variant='outline'
+                externalLink={project.links.github}
+                className='rounded-full glass border-primary/30 hover:bg-primary/10 px-6'
+              >
+                <Github className='h-4 w-4' />
+              </Button>
+            )}
           </div>
         </CardContent>
       </Card>
