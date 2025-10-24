@@ -6,40 +6,10 @@ import { Badge } from './ui/badge'
 import { Button } from './ui/button'
 import { Calendar, Clock, ArrowRight, User } from 'lucide-react'
 import Link from 'next/link'
+import { getFeaturedPosts } from '@/data/blog-data'
 
 export function BlogPreviewSection() {
-  const featuredPosts = [
-    {
-      title: 'Building Scalable React Applications: Lessons from Production',
-      excerpt:
-        "Discover the architectural patterns and best practices I've learned while building React applications that serve thousands of users.",
-      date: '2024-09-10',
-      readTime: '8 min read',
-      category: 'React',
-      slug: 'building-scalable-react-applications',
-      featured: true,
-    },
-    {
-      title: 'The Journey from Junior to Senior Developer',
-      excerpt:
-        'Reflecting on my growth as a developer and the key milestones that shaped my career in software development.',
-      date: '2024-09-05',
-      readTime: '6 min read',
-      category: 'Career',
-      slug: 'junior-to-senior-developer-journey',
-      featured: true,
-    },
-    {
-      title: 'Modern CSS Techniques Every Developer Should Know',
-      excerpt:
-        'Exploring CSS Grid, Flexbox, and modern layout techniques that have revolutionized web design and development.',
-      date: '2024-08-28',
-      readTime: '10 min read',
-      category: 'CSS',
-      slug: 'modern-css-techniques',
-      featured: true,
-    },
-  ]
+  const featuredPosts = getFeaturedPosts().slice(0, 3)
 
   return (
     <section id='blog-preview' className='py-32 relative overflow-hidden'>
@@ -63,15 +33,15 @@ export function BlogPreviewSection() {
           </div>
 
           <h2 className='text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance'>
-            From the{' '}
+            Latest{' '}
             <span className='bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent'>
-              Blog
+              Blog Posts
             </span>
           </h2>
 
           <p className='text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed'>
-            Insights, tutorials, and reflections on{' '}
-            <span className='text-primary font-medium'>software development</span>
+            Technical insights on{' '}
+            <span className='text-primary font-medium'>AI, IoT, and scalable systems</span>
           </p>
         </div>
 
@@ -107,6 +77,8 @@ interface BlogPostCardProps {
     category: string
     slug: string
     featured?: boolean
+    tags?: string[]
+    status?: 'published' | 'draft' | 'coming-soon'
   }
   index: number
 }
@@ -133,7 +105,7 @@ function BlogPostCard({ post, index }: BlogPostCardProps) {
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
-      <Link href={`/blog/${post.slug}`}>
+      <Link href={post.status === 'published' ? `/blog/${post.slug}` : '#'}>
         <Card className='group h-full glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl cursor-pointer'>
           {/* Background gradient on hover */}
           <div className='absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
@@ -146,11 +118,18 @@ function BlogPostCard({ post, index }: BlogPostCardProps) {
               >
                 {post.category}
               </Badge>
-              {post.featured && (
-                <Badge className='bg-gradient-to-r from-accent to-secondary text-white'>
-                  Featured
-                </Badge>
-              )}
+              <div className='flex gap-2'>
+                {post.featured && (
+                  <Badge className='bg-gradient-to-r from-accent to-secondary text-white'>
+                    Featured
+                  </Badge>
+                )}
+                {post.status === 'coming-soon' && (
+                  <Badge variant='outline' className='border-accent/50 text-accent'>
+                    Coming Soon
+                  </Badge>
+                )}
+              </div>
             </div>
 
             <CardTitle className='text-xl leading-tight group-hover:text-primary transition-colors duration-300'>

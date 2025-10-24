@@ -196,3 +196,136 @@
     display: none; /* Chrome, Safari and Opera */
   }
 }
+
+/* Syntax highlighting for code blocks */
+@import 'highlight.js/styles/github-dark.css';
+
+/* MDX Content Styling */
+.mdx-content h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.mdx-content h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid hsl(var(--border));
+  padding-bottom: 0.5rem;
+}
+
+.mdx-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.mdx-content p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: hsl(var(--foreground) / 0.9);
+}
+
+.mdx-content code {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--accent));
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-family: monospace;
+}
+
+.mdx-content pre {
+  background-color: hsl(var(--muted));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mdx-content pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.mdx-content ul,
+.mdx-content ol {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.mdx-content ul {
+  list-style-type: disc;
+}
+
+.mdx-content ol {
+  list-style-type: decimal;
+}
+
+.mdx-content li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+}
+
+.mdx-content a {
+  color: hsl(var(--primary));
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.mdx-content a:hover {
+  text-decoration: underline;
+}
+
+.mdx-content strong {
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.mdx-content blockquote {
+  border-left: 4px solid hsl(var(--primary));
+  background-color: hsl(var(--muted) / 0.3);
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.mdx-content table {
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-collapse: collapse;
+}
+
+.mdx-content th {
+  background-color: hsl(var(--muted));
+  border: 1px solid hsl(var(--border));
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.mdx-content td {
+  border: 1px solid hsl(var(--border));
+  padding: 0.75rem;
+}
+
+.mdx-content hr {
+  border-color: hsl(var(--border));
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
