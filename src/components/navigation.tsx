@@ -54,7 +54,7 @@ export function Navigation() {
     { id: 'home', label: 'Home', type: 'scroll' },
     { id: 'about', label: 'About', type: 'scroll' },
     { id: 'projects', label: 'Projects', type: 'scroll' },
-    { id: 'blog-preview', label: 'Blog', type: 'scroll' },
+    // { id: 'blog-preview', label: 'Blog', type: 'scroll' },
     { id: 'skills', label: 'Skills', type: 'scroll' },
     { id: 'timeline', label: 'Experience', type: 'scroll' },
     { id: 'contact', label: 'Contact', type: 'scroll' },

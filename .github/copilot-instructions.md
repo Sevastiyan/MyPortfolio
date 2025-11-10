@@ -1,5 +1,40 @@
 This repository is a personal Next.js (App Router) portfolio built with TypeScript, Tailwind CSS and a small set of React components and hooks. The goal of these instructions is to help an automated coding agent make safe, useful edits quickly and consistently.
 
+## Portfolio Owner: Sevastiyan Tsvetkov
+
+**Role**: Senior AI Engineer | Full-Stack Developer
+**Location**: Seoul, South Korea
+**Contact**: sevastiyan.tsv@gmail.com | [LinkedIn](https://linkedin.com/in/sevastiyan) | [GitHub](https://github.com/Sevastiyan)
+
+**Professional Summary**: AI and full-stack engineer bridging machine learning with scalable software. Experienced in real-time analytics, signal processing, and human-centric data systems for health and posture applications.
+
+**Current Employment**:
+
+- **Neurabody** (Aug 2024 – Present): Senior AI Engineer - Led cross-device posture detection with MediaPipe BlazePose, AWS WebRTC, Lambda, and DynamoDB
+- **Wethm Co., Ltd.** (Dec 2021 – Aug 2024): Full-Stack Developer - Built IoT sleep analytics platform, optimized TensorFlow inference (70% cost reduction)
+- **FlexoSense Pte. Ltd.** (May 2019 – Nov 2021): Data Analyst/AI Engineer - Developed smart insole gait analysis systems for clinical and industrial use
+
+**Key Skills**: Python, JavaScript/TypeScript, Kotlin, Java | TensorFlow, Scikit-learn | AWS (Lambda, S3, DynamoDB, SageMaker, Kinesis) | DynamoDB, MongoDB, PostgreSQL
+
+**Education**:
+
+- MSc Medialogy (Software Development) - Aalborg University, Copenhagen (2016-2018)
+- BEng Global Business Engineering - VIA University College, Denmark (2009-2014)
+
+**Key Projects** (use these as reference for portfolio content):
+
+1. **Gait Analysis Algorithm** (FlexoSense, Ongoing): Sensor-fusion algorithm for research-grade gait analysis using smart insoles, validated against CAREN gold-standard
+2. **Real-Time Pose Detection Platform** (Neurabody, 2024): Serverless AWS pipeline with MediaPipe BlazePose, WebRTC streaming, Lambda microservices
+3. **Sleep Analytics Cloud Infrastructure** (Wethm, 2023): End-to-end IoT backend with 70% cost optimization through TensorFlow edge inference
+4. **IoT Patient Activity Monitoring** (FlexoSense, 2021): MOH-funded hospital pilot with 96% ML accuracy for remote patient mobility tracking
+5. **Industrial Safety System** (FlexoSense, 2020): Real-time incident detection with 98% accuracy deployed under Keppel safety programs
+
+When updating portfolio content (projects, about, skills, timeline), reference the above professional background for accuracy. Maintain technical depth while keeping descriptions accessible.
+
+---
+
+## Technical Guidelines
+
 Key pointers (short and actionable):
 
 - Project entry points and structure:
